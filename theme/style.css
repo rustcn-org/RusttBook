@@ -51,3 +51,11 @@
     padding: 10px 0;
     color: gray;
 }
+
+
+/* 修改章节目录的间距 */
+.chapter li.chapter-item {
+    /* 没有文件时的文字颜色 */
+    color: #939da3;
+    margin-top: 1.4rem;
+}
