@@ -29,10 +29,13 @@
 
 如果是书籍或系列文章，必须要提供当前翻译进度，方便同步到最新文章列表中。
 
-最后，请**务必更新文章所在分类下的索引列表**( Readme.md )，这样读者才能在分类中看到你翻译的最新文章，未来该文章也会按照时间降序排列。
+最后，请务必更新文章所在分类下的索引列表( Readme.md )，这样读者才能在分类中看到你翻译的最新文章，未来该文章也会按照时间降序排列。
+
+**总之，你的 PR 必须符合[这些规则](../translation-guide/approver.md)，才能通过审核**。
 
 ### 5. 合并到主仓库，增加积分
-当全部翻译完成后，翻译者需要在 issue 中 @ 一个具有[审核权限的成员](../org-info/members.md#approver)，然后该成员在简单 review 后，将 PR 合并到主仓库，随后需要为该贡献者[计算并增加相应的积分](../org-info/rank-points.md)。
+
+当全部翻译完成后，翻译者需要在 issue 中 @ 一个具有审核权限的贡献者 [Approver](../org-info/members.md#approver)，该 Approver 在[完成审核](../translation-guide/approver.md)后，会将 PR 合并到主仓库，并为该翻译者[计算并增加相应的积分](../org-info/rank-points.md)。
 
 ### 6. 推送给用户
 推送包含两个方面:
