@@ -59,3 +59,14 @@
     color: #939da3;
     margin-top: 1.4rem;
 }
+
+/* 修改滚动条宽度 */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* 表格靠左对齐 */
+
+table {
+    margin-left: 0 !important;
+}

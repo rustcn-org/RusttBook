@@ -9,5 +9,5 @@ src = "src"
 git-repository-url = "https://github.com/studyrs/rusttt"
 edit-url-template = "https://github.com/studyrs/rusttt-book/edit/main/{path}"
 
-additional-css = ["theme/style.css"]
+additional-css = ["theme/style1.css"]
 additional-js = ["assets/custom.js"]
