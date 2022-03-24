@@ -70,3 +70,10 @@
 table {
     margin-left: 0 !important;
 }
+
+
+/* 自定义 css */
+
+.rusttt.trophy {
+    font-size: 25px;
+}

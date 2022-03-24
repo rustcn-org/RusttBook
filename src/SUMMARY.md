@@ -20,5 +20,6 @@
 
 - [组织信息]()
   - [贡献者列表和排名](org-info/members.md)
-  - [积分等级 Todo](org-info/rank-points.md)
+  - [积分等级](org-info/rank-points.md)
+  - [积分兑换](org-info/points-consuming.md)
   - [内容推广 Todo](org-info/promotion.md)
