@@ -15,7 +15,6 @@
   - [中文排版指北](translation-guide/composing.md)
   - [中英对照表](translation-guide/glossary.md)
   - [常用模版](translation-guide/templates.md)
-  - [标签列表 Todo](translation-guide/tags.md)
   - [Approver职责](translation-guide/approver.md)
 
 - [组织信息]()
