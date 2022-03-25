@@ -21,7 +21,7 @@
 
 还有 Rust 高星开源学习教程( 部分章节基于翻译 ): 
 
-| 教程 | github | 
+| 教程 | Github | 
 | --- | --- |
 | [Rust语言圣经](https://github.com/sunface/rust-course) | [![Stars Count](https://img.shields.io/github/stars/sunface/rust-course?style=flat)](https://github.com/sunface/rust-by-practice/stargazers) | 
 | [Rust语言实战](https://https://github.com/sunface/rust-by-practice) | [![Stars Count](https://img.shields.io/github/stars/sunface/rust-by-practice?style=flat)](https://github.com/sunface/rust-by-practice/stargazers) |
@@ -30,7 +30,7 @@
 
 ## 我们的承诺
 
-Rustt 郑重承诺：**永不停摆，永远更新**。大家可以思考下，我们为何不用网站的形式而是用 Github 仓库的形式？原因之一就在于网站太容易倒闭了，而 github 组织仓库不会，退一万步讲，就算未来有部分贡献者不再参与了，也不会影响组织的正常运行。
+Rustt 郑重承诺：**永不停摆，永远更新**。大家可以思考下，我们为何不用网站的形式而是用 Github 仓库的形式？原因之一就在于网站太容易倒闭了，而 Github 组织仓库不会，退一万步讲，就算未来有部分贡献者不再参与了，也不会影响组织的正常运行。
 
 
 
