@@ -9,4 +9,4 @@
 > 译者：[Sunface](https://im.dev)
 > 选题：[Sunface](https://im.dev)
 >
-> 本文由 [RustTT](https://rusttt.org) 原创编译，[StudyRust](https://studyrust.org) 荣誉推出
+> 本文由 [Rustt](https://rustt.org) 原创编译，[StudyRust](https://studyrust.org) 荣誉推出

@@ -1,13 +1,13 @@
 [book]
-authors = ["RustTT.org"]
+authors = ["Rustt.org"]
 language = "en"
 multilingual = false
 src = "src"
 
 
 [output.html]
-git-repository-url = "https://github.com/studyrs/rusttt"
-edit-url-template = "https://github.com/studyrs/rusttt-book/edit/main/{path}"
+git-repository-url = "https://github.com/studyrs/rustt"
+edit-url-template = "https://github.com/studyrs/rustt-book/edit/main/{path}"
 
-additional-css = ["theme/style0.css"]
-additional-js = ["assets/custom0.js"]
+additional-css = ["theme/style4.css"]
+additional-js = ["assets/custom4.js"]

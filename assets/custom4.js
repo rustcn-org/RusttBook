@@ -125,7 +125,7 @@ var initAll = function () {
     script.src = "https://giscus.app/client.js";
     script.async = true;
     script.crossOrigin = "anonymous";
-    script.setAttribute("data-repo", "studyrs/RustTT-book");
+    script.setAttribute("data-repo", "studyrs/RusttBook");
     script.setAttribute("data-repo-id", "R_kgDOHDe7nA");
     script.setAttribute("data-category", "giscus comments");
     script.setAttribute("data-category-id", "DIC_kwDOHDe7nM4COQnv");

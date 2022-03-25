@@ -1,6 +1,6 @@
 # Summary
 
-- [RustTT 介绍](./about.md)
+- [Rustt 介绍](./about.md)
 - [加入我们](./join-us.md)
 - [选题指南](./proposing.md)
   

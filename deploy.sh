@@ -13,7 +13,7 @@ git config user.email "cto@188.com"
 git add .
 git commit -m 'deploy'
 git branch -M gh-pages
-git remote add origin https://github.com/studyrs/RustTT-book
+git remote add origin https://github.com/studyrs/RusttBook
 
 ## push to github pages
 git push -u -f origin gh-pages

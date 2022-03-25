@@ -1,6 +1,6 @@
 # 选题须知
 
-我们设立了一个 [issue 模版](https://github.com/studyrs/RustTT/issues/new?assignees=&labels=待认领&template=proposing.md&title=%5B类型%5D%5B日期%5D+标题)专门用于提交选题，大家按照提示来即可。
+我们设立了一个 [issue 模版](https://github.com/studyrs/Rustt/issues/new?assignees=&labels=待认领&template=proposing.md&title=%5B类型%5D%5B日期%5D+标题)专门用于提交选题，大家按照提示来即可。
 
 
 ## 怎么选题

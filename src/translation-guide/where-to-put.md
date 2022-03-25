@@ -4,9 +4,9 @@
 ## 按照类型放入指定目录
 选题的 issue 开头就是翻译内容的类型: 文章、资讯、书籍。它们需要分别放入到以下目录中(仓库的根目录下):
 
-- 文章和系列文章: [`Posts`](https://github.com/studyrs/RustTT/tree/main/Posts)
-- 书籍: [`Books`](https://github.com/studyrs/RustTT/tree/main/Books)
-- 资讯: [`News`](https://github.com/studyrs/RustTT/tree/main/News)
+- 文章和系列文章: [`Posts`](https://github.com/studyrs/Rustt/tree/main/Posts)
+- 书籍: [`Books`](https://github.com/studyrs/Rustt/tree/main/Books)
+- 资讯: [`News`](https://github.com/studyrs/Rustt/tree/main/News)
 
 
 ## 创建文件还是目录

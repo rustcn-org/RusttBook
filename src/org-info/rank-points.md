@@ -1,5 +1,5 @@
 # 积分等级
-贡献产生积分，积分决定贡献者等级，RustTT 通过这种规则来让更优秀的贡献者能够脱颖而出。
+贡献产生积分，积分决定贡献者等级， Rustt 通过这种规则来让更优秀的贡献者能够脱颖而出。
 
 
 ## 贡献者等级
@@ -15,10 +15,10 @@
 | 🔮 | 2000 - 4000 | 
 | 🔮🔮 | 4000 - 7000 |
 | 🔮🔮🔮 | 7000 - ? | 
-| <span class="rusttt trophy">🏅</span> | 积分前十 | 
-| <span class="rusttt trophy">🥉</span> | 积分第三 | 
-| <span class="rusttt trophy">🥈</span> | 积分第二 | 
-| <span class="rusttt trophy">🥇</span> | 积分第一 |
+| <span class="rustt trophy">🏅</span> | 积分前十 | 
+| <span class="rustt trophy">🥉</span> | 积分第三 | 
+| <span class="rustt trophy">🥈</span> | 积分第二 | 
+| <span class="rustt trophy">🥇</span> | 积分第一 |
 
 > 1. 从 💎 等级开始，贡献者就可以申请成为 `Approver`
 > 
