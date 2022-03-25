@@ -3,7 +3,8 @@
 - [Rustt 介绍](./about.md)
 - [加入我们](./join-us.md)
 - [选题指南](./proposing.md)
-  
+- [积分和贡献者等级](./rank-points.md)
+
 <!-- - [读者手册]()
   - [使用指南 Todo](reader-guide/how-to-use.md)
   - [如何找到想要的内容 Todo](reader-guide/find-the-content.md) -->
@@ -18,7 +19,6 @@
   - [Approver职责](translation-guide/approver.md)
 
 - [组织信息]()
-  - [贡献者列表和排名](org-info/members.md)
-  - [积分等级](org-info/rank-points.md)
+  - [组织成员](org-info/members.md)
   - [积分兑换](org-info/points-consuming.md)
   - [内容推广 Todo](org-info/promotion.md)
