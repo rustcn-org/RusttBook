@@ -11,7 +11,7 @@
 
 ## 图片存储
 
-目前图片统一存储在 [rustt-assets](https://github.com/studyrs/rustt-assets) 仓库中，对于翻译的文章、书籍，在里面创建同名的目录，然后将图片置入其中。
+目前图片统一存储在 [rustt-assets](https://github.com/rustt-org/rustt-assets) 仓库中，对于翻译的文章、书籍，在里面创建同名的目录，然后将图片置入其中。
 
 ## 创建文件还是目录
 

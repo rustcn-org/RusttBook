@@ -67,7 +67,21 @@ Rustt 郑重承诺：**永不停摆，永远更新**。大家可以思考下，�
     </tr>
 </table>
 
-- XXX，首篇翻译文章由 YYY 贡献: 
+- `2022-03-27`，[首篇翻译文章](https://github.com/studyrs/Rustt/blob/main/Posts/%5B2022-03-26%5D%20Rust%20嵌入式开发.md)由 **Xiaobin.Liu** 贡献:
+
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/lxbwolf">
+                  <img src="https://avatars.githubusercontent.com/u/12119889?v=4?s=100" width="120px"  alt=""/>
+                <br />
+                <sub><b>Xiaobin.Liu</b></sub>
+                <br />
+            </a>
+        </td>
+    </tr>
+</table>
+
 - XXX, 第一个正式成员 💎 出现:
 
 To be continued..
