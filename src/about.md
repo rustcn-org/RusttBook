@@ -35,9 +35,9 @@ Rustt 郑重承诺：**永不停摆，永远更新**。大家可以思考下，�
 > 郑重声明，所有翻译成果的著作权都归属于翻译者个人，Rustt 只是一个非盈利性组织
 
 
-## 组织演化史
+## 组织发展史
 
-- `2022-03-22` 正式成立，创始人 [Sunface](https://im.dev)，同天，第一名成员加入： 
+- `2022-03-22` 正式成立，创始人 [Sunface](https://im.dev)，同天，第一名成员 **asur4s** 加入： 
   
 <table>
     <tr>
@@ -52,5 +52,22 @@ Rustt 郑重承诺：**永不停摆，永远更新**。大家可以思考下，�
     </tr>
 </table>
 
-- XXX，首个选题由 YYY 贡献：
+- `2022-03-26` 首个[选题](https://github.com/studyrs/Rustt/issues/10)由 **minikiller** 贡献：
+
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/minikiller">
+                  <img src="https://avatars.githubusercontent.com/u/5356570?v=4?s=100" width="120px"  alt=""/>
+                <br />
+                <sub><b>minikiller</b></sub>
+                <br />
+            </a>
+        </td>
+    </tr>
+</table>
+
 - XXX，首篇翻译文章由 YYY 贡献: 
+- XXX, 第一个正式成员 💎 出现:
+
+To be continued..
