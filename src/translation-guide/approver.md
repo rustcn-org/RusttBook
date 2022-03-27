@@ -1,5 +1,9 @@
 # Approver职责
-审核者 Approver 是组织中的核心角色，负责对贡献者提交的 PR 进行审核。
+审核者 [Approver](https://github.com/orgs/studyrs/teams/rustt-approvers) 是组织中的核心角色，负责:
+
+- 对选题进行审核和加分
+- 为选题指定翻译者
+- 对贡献者提交的 PR 进行审核和合并
 
 诸位需要确保贡献者提交的 PR 符合以下规则:
 

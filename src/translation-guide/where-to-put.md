@@ -9,6 +9,10 @@
 - 资讯: [`News`](https://github.com/studyrs/Rustt/tree/main/News)
 
 
+## 图片存储
+
+目前图片统一存储在 [rustt-assets](https://github.com/studyrs/rustt-assets) 仓库中，对于翻译的文章、书籍，在里面创建同名的目录，然后将图片置入其中。
+
 ## 创建文件还是目录
 
 - 文章、资讯: 文件
@@ -17,3 +21,6 @@
 ## 文件或目录名
 
 翻译后的文件名规则如下：`[时间] 中文文章名(如果是有名的英文书籍需要附上英文书名).md`，例如 `[22-03-23] Rust程序设计(The Rust Book).md`
+
+## 核心成员的特权
+如果你是[核心以上的成员](../rank-points.md)，那么你将拥有将书籍作为一个单独的仓库放入 [StudyRust](https://github.com/studyrs) 组织下的权利。
