@@ -398,6 +398,7 @@ unwrap                           | 解包                          | 暂译！
 variable binding                 | 变量绑定                      |
 variable shadowing               | 变量遮蔽，变量隐蔽,<br>变量隐藏，变量覆盖 |
 variable capture                 | 变量捕获                      |
+variance                         | 型变                         | Invariance 不变、contravariant 逆变、covariance 协变
 variant                          | 变量                          |
 vector                           | （动态数组，一般不译）        | vector 本义是“向量”
 visibility                       | 可见性                        |
