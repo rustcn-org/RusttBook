@@ -47,12 +47,19 @@
 | zebra stripes | are neat        |    $1 |
 
 
+#### 脚标
+
+```
+This is an example of a footnote[^note].
+
+[^note]: This text is the contents of the footnote, which will be rendered
+    towards the bottom.
+
+```
+
+This is an example of a footnote[^note].
+
+[^note]: This text is the contents of the footnote, which will be rendered
+    towards the bottom.
+
 ## HTML语法
-
-#### 颜色文字
-
-```
-<font color="green">还好头上不绿</font>
-```
-
-<font color="green">还好头上不绿</font>
