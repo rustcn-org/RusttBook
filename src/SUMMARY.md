@@ -4,7 +4,7 @@
 - [加入我们](./join-us.md)
 - [选题指南](./proposing.md)
 - [积分和贡献者等级](./rank-points.md)
-
+- [新人引导](./newbee-guide.md)
 <!-- - [读者手册]()
   - [使用指南 Todo](reader-guide/how-to-use.md)
   - [如何找到想要的内容 Todo](reader-guide/find-the-content.md) -->
