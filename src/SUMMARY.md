@@ -15,6 +15,7 @@
   - [如何提交PR](translation-guide/pr.md)
   - [Markdown 和 HTML](translation-guide/markdown.md)
   - [中文排版指北](translation-guide/composing.md)
+  - [翻译风格指南](translation-guide/styles.md)
   - [中英对照表](translation-guide/glossary.md)
   - [常用模版](translation-guide/templates.md)
   - [Approver职责](translation-guide/approver.md)
