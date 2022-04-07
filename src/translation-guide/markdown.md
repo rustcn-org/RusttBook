@@ -4,7 +4,11 @@
 > `GFM` 的完整文档可以在 [Github 官方文档](https://docs.github.com/cn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)中查看。
 
 
-## Markdown语法
+
+#### 引用图片
+
+出于兼容性考虑，建议大家使用 `<img src="IMAGE_URL" />` 的方式引入图片，就目前所知，`![图片描述](IMAGE_URL)` 的方式在知乎、微信公众号上都无法正常使用。
+
 
 #### 文字上标注
 
@@ -72,4 +76,4 @@ This is an example of a footnote[^note].
 [^note]: This text is the contents of the footnote, which will be rendered
     towards the bottom.
 
-## HTML语法
+

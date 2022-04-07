@@ -8,7 +8,11 @@
 关于选题，请参见[选题指南](../proposing.md)。
 
 ### 2. 贡献者认领
-选题提交后，对应的 issue 会被自动打上 `待认领` 标签。翻译者可以根据自己的兴趣爱好进行认领：在 issue 下评论 `@` 一个 [Approver](https://guide.rustt.org/org-info/members.html#approver)，然后 Approver 将该 issue 的剩余信息填写完毕，并将标签从 `待认领` 修改为 `已认领`。 
+选题提交后，对应的 issue 会被自动打上 `待认领` 标签。
+
+翻译者可以根据自己的兴趣爱好进行认领， 在 issue 下评论: 申请翻译，预期完成时间 20XX-YY-ZZ。
+
+然后 Approver 在浏览选题列表时，如果发现一个选题 issue 打上了 `待认领` 标签且有用户评论，就说明该选题已经被申请认领。你需要进入该 issue, 将剩余信息填写完毕，并将 issue 标签从 `待认领` 修改为 `已认领`。 
 
 如果大家还是迷惑，可以看看这个[示例 issue](https://github.com/studyrs/Rustt/issues/10)。
 
