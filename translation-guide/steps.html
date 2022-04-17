@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>翻译步骤详解</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style4.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> Rustt 介绍</a></li><li class="chapter-item expanded "><a href="../join-us.html"><strong aria-hidden="true">2.</strong> 加入我们</a></li><li class="chapter-item expanded "><a href="../proposing.html"><strong aria-hidden="true">3.</strong> 选题指南</a></li><li class="chapter-item expanded "><a href="../rank-points.html"><strong aria-hidden="true">4.</strong> 积分和贡献者等级</a></li><li class="chapter-item expanded "><a href="../newbee-guide.html"><strong aria-hidden="true">5.</strong> 新人引导</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 翻译手册</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../translation-guide/steps.html" class="active"><strong aria-hidden="true">6.1.</strong> 翻译步骤详解</a></li><li class="chapter-item expanded "><a href="../translation-guide/where-to-put.html"><strong aria-hidden="true">6.2.</strong> 翻译内容和图片放在哪？</a></li><li class="chapter-item expanded "><a href="../translation-guide/pr.html"><strong aria-hidden="true">6.3.</strong> 如何提交PR</a></li><li class="chapter-item expanded "><a href="../translation-guide/markdown.html"><strong aria-hidden="true">6.4.</strong> Markdown 和 HTML</a></li><li class="chapter-item expanded "><a href="../translation-guide/composing.html"><strong aria-hidden="true">6.5.</strong> 中文排版指北</a></li><li class="chapter-item expanded "><a href="../translation-guide/styles.html"><strong aria-hidden="true">6.6.</strong> 翻译风格指南</a></li><li class="chapter-item expanded "><a href="../translation-guide/glossary.html"><strong aria-hidden="true">6.7.</strong> 中英对照表</a></li><li class="chapter-item expanded "><a href="../translation-guide/templates.html"><strong aria-hidden="true">6.8.</strong> 常用模版</a></li><li class="chapter-item expanded "><a href="../translation-guide/approver.html"><strong aria-hidden="true">6.9.</strong> Approver职责</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 组织信息</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../org-info/members.html"><strong aria-hidden="true">7.1.</strong> 组织成员</a></li><li class="chapter-item expanded "><a href="../org-info/points-consuming.html"><strong aria-hidden="true">7.2.</strong> 积分兑换</a></li><li class="chapter-item expanded "><a href="../org-info/promotion.html"><strong aria-hidden="true">7.3.</strong> 内容推广 Todo</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/studyrs/rustt" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/studyrs/rustt-book/edit/main/src/translation-guide/steps.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="一篇文章的诞生"><a class="header" href="#一篇文章的诞生">一篇文章的诞生</a></h1>
+<p>一篇文章在投放到读者手中前会经历如下流程:</p>
+<p><code>提交选题 -&gt; 贡献者认领 -&gt; 翻译ing -&gt; 提交 PR -&gt; 合并到主仓库，增加积分 -&gt; 推送给用户</code></p>
+<h3 id="1-提交选题"><a class="header" href="#1-提交选题">1. 提交选题</a></h3>
+<p>关于选题，请参见<a href="../proposing.html">选题指南</a>。</p>
+<h3 id="2-贡献者认领"><a class="header" href="#2-贡献者认领">2. 贡献者认领</a></h3>
+<p>选题提交后，对应的 issue 会被自动打上 <code>待认领</code> 标签。</p>
+<p>翻译者可以根据自己的兴趣爱好进行认领， 在 issue 下评论: 申请翻译，预期完成时间 20XX-YY-ZZ。</p>
+<p>然后 Approver 在浏览选题列表时，如果发现一个选题 issue 打上了 <code>待认领</code> 标签且有用户评论，就说明该选题已经被申请认领。你需要进入该 issue, 将剩余信息填写完毕，并将 issue 标签从 <code>待认领</code> 修改为 <code>已认领</code>。 </p>
+<p>如果大家还是迷惑，可以看看这个<a href="https://github.com/studyrs/Rustt/issues/10">示例 issue</a>。</p>
+<h3 id="3-翻译ing"><a class="header" href="#3-翻译ing">3. 翻译ing</a></h3>
+<p>由于翻译内容一定会创建新的文件，因此请务必看下这篇说明：<a href="./where-to-put.html">翻译成果放在哪?</a>， <strong>非常重要</strong>！</p>
+<p>在翻译时，贡献者需要遵循 <a href="./composing.html">排版指北</a> 和 <a href="./composing.html">中英对照</a>，尽量保证翻译风格的统一。</p>
+<!-- 系列文章和书籍需要在其根目录下置放一个 `Readme.md` 文件，然后在其中对书籍进行介绍，**最重要的是要提供目录**！ -->
+<h3 id="4-提交-pr"><a class="header" href="#4-提交-pr">4. 提交 PR</a></h3>
+<blockquote>
+<p>注意，提交 PR 有个先决条件：贡献者等级达到 🌟🌟，新来的贡献者可以提两个选题，然后自己认领了，就差不多够 10 分了。</p>
+</blockquote>
+<p>大家可以按照单篇文章的粒度来提交 PR : </p>
+<ul>
+<li>如果是文章、资讯类的，可以一次性翻译完成后，再提交 PR</li>
+<li>对于书籍或系列文章则可以按照其中的章节来提交，例如，一个章节一个 PR，当然你也可以一本书一个 PR :P</li>
+</ul>
+<p>提交 PR 时必须要关联选题的 issue，这样可以在 issue 中跟踪进度并获取最后结果。</p>
+<p>如果是书籍或系列文章，必须要提供当前翻译进度，方便同步到最新文章列表中。</p>
+<!-- 最后，请务必更新文章所在分类下的索引列表( Readme.md )，这样读者才能在分类中看到你翻译的最新文章，未来该文章也会按照时间降序排列。 -->
+<blockquote>
+<p><strong>翻译者请注意</strong>！</p>
+<ol>
+<li>请额外提交一个 pr，修改仓库首页的最近翻译列表，将你的文章添加到列表上最上方，修改相应的信息。由于这个列表只保留六篇文章，因此如果列表长度超过 6，请你移除最下面的文章所在的行。</li>
+<li>你提交的翻译文件名中的时间应该是翻译完成的时间，而不是创建文件的时间。不然，假如你在 3 月 1 号创建的文件，但是在 3 月 31 号完成，结果文件名还是 1 号的，这中间就有了巨大的时间反差</li>
+</ol>
+</blockquote>
+<p><strong>总之，你的 PR 必须符合<a href="../translation-guide/approver.html">这些规则</a>，才能通过审核</strong>。</p>
+<h3 id="5-合并到主仓库增加积分"><a class="header" href="#5-合并到主仓库增加积分">5. 合并到主仓库，增加积分</a></h3>
+<p>当全部翻译完成后，翻译者需要在 issue 中 @ 一个具有审核权限的贡献者 <a href="../org-info/members.html#approver">Approver</a>，该 Approver 在<a href="../translation-guide/approver.html">完成审核</a>后，会将 PR 合并到主仓库，并为该翻译者<a href="../org-info/rank-points.html">计算并增加相应的积分</a>。</p>
+<h3 id="6-推送给用户"><a class="header" href="#6-推送给用户">6. 推送给用户</a></h3>
+<p>推送包含两个方面:</p>
+<ul>
+<li>在主仓库首页的最新文章列表中进行添加，如果是书籍、系列文章，需要更新下进度</li>
+<li>推送到其它平台，例如知乎、微信公众号等</li>
+</ul>
+
+                        <div id="giscus-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../newbee-guide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../translation-guide/where-to-put.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../newbee-guide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../translation-guide/where-to-put.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+        var pagePath = "translation-guide/steps.md"
+        </script>
+
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../assets/custom4.js"></script>
+    </body>
+</html>

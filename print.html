@@ -1,0 +1,1261 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/style4.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> Rustt 介绍</a></li><li class="chapter-item expanded "><a href="join-us.html"><strong aria-hidden="true">2.</strong> 加入我们</a></li><li class="chapter-item expanded "><a href="proposing.html"><strong aria-hidden="true">3.</strong> 选题指南</a></li><li class="chapter-item expanded "><a href="rank-points.html"><strong aria-hidden="true">4.</strong> 积分和贡献者等级</a></li><li class="chapter-item expanded "><a href="newbee-guide.html"><strong aria-hidden="true">5.</strong> 新人引导</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 翻译手册</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="translation-guide/steps.html"><strong aria-hidden="true">6.1.</strong> 翻译步骤详解</a></li><li class="chapter-item expanded "><a href="translation-guide/where-to-put.html"><strong aria-hidden="true">6.2.</strong> 翻译内容和图片放在哪？</a></li><li class="chapter-item expanded "><a href="translation-guide/pr.html"><strong aria-hidden="true">6.3.</strong> 如何提交PR</a></li><li class="chapter-item expanded "><a href="translation-guide/markdown.html"><strong aria-hidden="true">6.4.</strong> Markdown 和 HTML</a></li><li class="chapter-item expanded "><a href="translation-guide/composing.html"><strong aria-hidden="true">6.5.</strong> 中文排版指北</a></li><li class="chapter-item expanded "><a href="translation-guide/styles.html"><strong aria-hidden="true">6.6.</strong> 翻译风格指南</a></li><li class="chapter-item expanded "><a href="translation-guide/glossary.html"><strong aria-hidden="true">6.7.</strong> 中英对照表</a></li><li class="chapter-item expanded "><a href="translation-guide/templates.html"><strong aria-hidden="true">6.8.</strong> 常用模版</a></li><li class="chapter-item expanded "><a href="translation-guide/approver.html"><strong aria-hidden="true">6.9.</strong> Approver职责</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 组织信息</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="org-info/members.html"><strong aria-hidden="true">7.1.</strong> 组织成员</a></li><li class="chapter-item expanded "><a href="org-info/points-consuming.html"><strong aria-hidden="true">7.2.</strong> 积分兑换</a></li><li class="chapter-item expanded "><a href="org-info/promotion.html"><strong aria-hidden="true">7.3.</strong> 内容推广 Todo</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/studyrs/rustt" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <div align="center">
+    <img src="https://github.com/studyrs/Rustt/blob/main/.github/assets/logo.png?raw=true">
+</div>
+<p>欢迎大家来到 Rustt 翻译组，该翻译组是 <em>Rust语言学习社区( Rust学社 )</em> 的核心组，主要负责将国外优秀的 Rust 技术文章、书籍和新闻资讯翻译成中文。</p>
+<blockquote>
+<p>大家可以在<a href="https://Rustt.org">这里</a>查看、订阅我们的翻译成果，里面的内容都是经过精心设计和组织的，便于翻阅和学习</p>
+</blockquote>
+<h2 id="部分成果展示"><a class="header" href="#部分成果展示">部分成果展示</a></h2>
+<p>以下是我们翻译的部分知名 Rust 学习书籍:</p>
+<table><thead><tr><th>书籍</th><th>原文链接</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/studyrs/too-many-lists">手把手带你实现链表</a></td><td><a href="https://rust-unofficial.github.io/too-many-lists/">Too Many Linked Lists</a></td></tr>
+<tr><td><a href="https://github.com/studyrs/async-book">Rust异步编程指南</a></td><td><a href="https://rust-lang.github.io/async-book/">Asynchronous Programming in Rust</a></td></tr>
+<tr><td><a href="https://github.com/studyrs/cargo-book">Cargo使用指南</a></td><td><a href="https://doc.rust-lang.org/stable/cargo/index.html">The Cargo Book</a></td></tr>
+<tr><td><a href="https://github.com/studyrs/tokio-course">Tokio官方教程</a></td><td><a href="https://tokio.rs/tokio/tutorial">Tokio Tutorial</a></td></tr>
+</tbody></table>
+<br />
+<p>还有 Rust 高星开源学习教程( 部分章节基于翻译 ): </p>
+<table><thead><tr><th>教程</th><th>Github</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/sunface/rust-course">Rust语言圣经</a></td><td><a href="https://github.com/sunface/rust-by-practice/stargazers"><img src="https://img.shields.io/github/stars/sunface/rust-course?style=flat" alt="Stars Count" /></a></td></tr>
+<tr><td><a href="https://https://github.com/sunface/rust-by-practice">Rust语言实战</a></td><td><a href="https://github.com/sunface/rust-by-practice/stargazers"><img src="https://img.shields.io/github/stars/sunface/rust-by-practice?style=flat" alt="Stars Count" /></a></td></tr>
+</tbody></table>
+<br />
+<h2 id="我们的承诺"><a class="header" href="#我们的承诺">我们的承诺</a></h2>
+<p>Rustt 郑重承诺：<strong>永不停摆，永远更新</strong>。大家可以思考下，我们为何不用网站的形式而是用 Github 仓库的形式？原因之一就在于网站太容易倒闭了，而 Github 组织仓库不会，退一万步讲，就算未来有部分贡献者不再参与了，也不会影响组织的正常运行。</p>
+<blockquote>
+<p>郑重声明，所有翻译成果的著作权都归属于翻译者个人，Rustt 只是一个非盈利性组织</p>
+</blockquote>
+<h2 id="组织发展史"><a class="header" href="#组织发展史">组织发展史</a></h2>
+<ul>
+<li><code>2022-03-22</code> 正式成立，创始人 <a href="https://im.dev">Sunface</a>，同天，第一名成员 <strong>Asura</strong> 加入： </li>
+</ul>
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/asur4s">
+                <img src="https://avatars.githubusercontent.com/u/99897242?v=4?s=100" width="120px"  alt=""/>
+                <br />
+                <sub><b>Asura</b></sub>
+                <br />
+            </a>
+        </td>
+    </tr>
+</table>
+<ul>
+<li><code>2022-03-26</code> 首个<a href="https://github.com/studyrs/Rustt/issues/10">选题</a>由 <strong>minikiller</strong> 贡献：</li>
+</ul>
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/minikiller">
+                  <img src="https://avatars.githubusercontent.com/u/5356570?v=4?s=100" width="120px"  alt=""/>
+                <br />
+                <sub><b>minikiller</b></sub>
+                <br />
+            </a>
+        </td>
+    </tr>
+</table>
+<ul>
+<li><code>2022-03-27</code>，<a href="https://github.com/studyrs/Rustt/blob/main/Articles/%5B2022-03-26%5D%20Rust%20%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91.md">首篇翻译文章</a>由 <strong>Xiaobin.Liu</strong> 贡献:</li>
+</ul>
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/lxbwolf">
+                  <img src="https://avatars.githubusercontent.com/u/12119889?v=4?s=100" width="120px"  alt=""/>
+                <br />
+                <sub><b>Xiaobin.Liu</b></sub>
+                <br />
+            </a>
+        </td>
+    </tr>
+</table>
+<ul>
+<li>XXX, 第一个正式成员 💎 出现:</li>
+</ul>
+<p>To be continued..</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="加入我们"><a class="header" href="#加入我们">加入我们</a></h1>
+<p>首先诚邀大家加入 Rustt 翻译组，翻译组目前刚成立( 2022-03-22 )，因此亟需各路高手的加入，我们<strong>目前的目标</strong>是为国内 Rust 爱好者提供高质量的学习教程、技术文章、新闻资讯的翻译。</p>
+<p>至于未来的目标？那就是星辰大海了，你相信 Rustt 未来会成为国内最知名的技术翻译组吗 :) 如果信，那就<a href="(https://github.com/studyrs/Rustt/issues/new?template=membership-application.yaml)">赶紧来吧</a>。</p>
+<h2 id="对你的要求"><a class="header" href="#对你的要求">对你的要求</a></h2>
+<p>我们的目标是星辰大海，那自然需要优秀的人相伴而行，我个人认为：对于技术而言，<strong>长期坚持做一件事是最难也是最重要的</strong>，行百里者半九十，而这恰恰是 Rustt 希望避免的，因此我们对你提出以下要求:</p>
+<ul>
+<li>首先也是最重要的，请坚持下去，不要半途而废，这个坚持可能需要以年为单位</li>
+<li>英文和翻译水平过关，毕竟你的翻译成果会影响数以万计的开发者</li>
+</ul>
+<h2 id="组织角色"><a class="header" href="#组织角色">组织角色</a></h2>
+<p>跟其它翻译小组不同，我们不设置专门的角色，例如校对员，原因是小组里的每个人都是非常优秀的，没有人愿意去给别人做脏活累活，而且从校对的效率来说，自己校对会高效的多，毕竟翻译者的那个人才能拥有完整的上下文。</p>
+<p>因此 Rustt 只有一个角色，那就是 <strong>贡献者</strong>。</p>
+<h2 id="贡献者等级"><a class="header" href="#贡献者等级">贡献者等级</a></h2>
+<p>虽说文无第一，但我们希望能让更优秀、更努力的人脱颖而出，因此特定设立贡献者等级，具体参见<a href="./org-info/rank-points.html">积分等级</a></p>
+<h2 id="贡献者能获取的好处"><a class="header" href="#贡献者能获取的好处">贡献者能获取的好处</a></h2>
+<p>相信很多同学都有这个烦恼，写出的文章没人看，虽然文章是记录自己，但是没人捧场，总觉得过于冷清了，长此以往，也就慢慢不再去写。</p>
+<p>成为 Rustt 贡献者，你可以获得以下好处：</p>
+<ul>
+<li>一个高星开源项目，虽然不在自己名下，但是你的名字会列在文章作者处，并根据贡献者等级，在项目首页进大力推荐</li>
+<li>文章将被分发到Rust学社的公众号、知乎等平台上，并在最醒目处标注你的署名和个人链接</li>
+<li>能力提升：英文水平、技术水平、写作能力、语言组织能力、长期做一件事的意志力等等</li>
+<li>个人影响力</li>
+<li>如果未来有知识付费，那你还可以获得金钱上的回报，我们不会收取任何中间费用，所有创作收入都归创作者所有！</li>
+</ul>
+<p>总之贡献者等级越高，未来的收获也会越大。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="选题须知"><a class="header" href="#选题须知">选题须知</a></h1>
+<p>我们设立了一个 <a href="https://github.com/studyrs/Rustt/issues/new?assignees=&amp;labels=%E5%BE%85%E8%AE%A4%E9%A2%86&amp;template=proposing.md&amp;title=%5B%E7%B1%BB%E5%9E%8B%5D%5B%E6%97%A5%E6%9C%9F%5D+%E6%A0%87%E9%A2%98">issue 模版</a>专门用于提交选题，大家按照提示来即可。</p>
+<p>如果还是不清楚该怎么填写，可以看看 Rustt 的<a href="https://github.com/studyrs/Rustt/issues/10">第一个选题</a>长什么样。</p>
+<blockquote>
+<p>请大家按照选题模版中的选题者须知步骤来完成内容填写</p>
+</blockquote>
+<h2 id="怎么选题"><a class="header" href="#怎么选题">怎么选题</a></h2>
+<p>大家在发现有价值的 Rust 文章后，就可以考虑提交选题。任何人都可以提交，但如果质量过低，会被关闭。 </p>
+<p>原则上，选题的受众范围不要太小了，几乎很少有人会感兴趣，因此并不推荐浪费时间，我们还是以服务大众为主。</p>
+<blockquote>
+<p>如果不知道去哪里寻找选题，可以看看 <a href="https://weekly.rs">Rust语言周刊</a> ，里面有近期的优秀英文文章</p>
+</blockquote>
+<h2 id="选题规则"><a class="header" href="#选题规则">选题规则</a></h2>
+<h2 id="选题奖励"><a class="header" href="#选题奖励">选题奖励</a></h2>
+<p>好的选题需要花费心思和时间，因此我们会给予选题者一定的积分，详情见 <a href="../org-info/rank-points.html">积分等级</a>。</p>
+<p>当然，想要累积积分的话，你需要先<a href="join-us.html">申请成为贡献者</a>。</p>
+<h2 id="选题后的流程"><a class="header" href="#选题后的流程">选题后的流程？</a></h2>
+<p><code>提交选题 -&gt; 贡献者认领 -&gt; 翻译ing -&gt; 提交 PR -&gt; 合并到主仓库，增加积分 -&gt; 推送给用户</code></p>
+<p>感兴趣的读者可以进一步看看<a href="./translation-guide/steps.html">这里</a>。</p>
+<h4 id="选题有效期"><a class="header" href="#选题有效期">选题有效期</a></h4>
+<p>若一个选题长时间没人认领，我们会默认认为该选题的吸引力不大，因此会予以关闭。</p>
+<ul>
+<li>资讯类选题: 2 周</li>
+<li>文章类选题: 4 周</li>
+<li>书籍类选题： 暂不限制</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="积分和贡献者等级"><a class="header" href="#积分和贡献者等级">积分和贡献者等级</a></h1>
+<p>贡献产生积分，积分决定贡献者等级， Rustt 通过这种规则来让更优秀的贡献者能够脱颖而出。</p>
+<blockquote>
+<p>注意：只有加入 Rustt 后，才可以成为贡献者并拥有积分。</p>
+</blockquote>
+<h2 id="积分等级"><a class="header" href="#积分等级">积分等级</a></h2>
+<table><thead><tr><th>等级</th><th>积分</th><th>获得权利</th></tr></thead><tbody>
+<tr><td>🌟</td><td>0 - 10</td><td>可提交选题</td></tr>
+<tr><td>🌟🌟</td><td>10 - 50</td><td>可翻译文章</td></tr>
+<tr><td>🌟🌟🌟</td><td>50 - 200</td><td></td></tr>
+<tr><td>💎</td><td>200 - 400</td><td>成为 Rustt 和 StudyRust 组织的正式成员，拥有列入首页名单的资格</td></tr>
+<tr><td>💎💎</td><td>400 - 800</td><td>可以申请成为 <a href="https://github.com/orgs/studyrs/teams/rustt-approvers">Approver</a></td></tr>
+<tr><td>💎💎💎</td><td>800 - 2000</td><td>成为核心成员</td></tr>
+<tr><td>🔮</td><td>2K- 4K</td><td>可以申请成为组织管理员，开始拥有流量推广的权利</td></tr>
+<tr><td>🔮🔮</td><td>4K - 8K</td><td>在未来的社区网站中，你的头像和名字将在最最最显眼的位置</td></tr>
+<tr><td>🔮🔮🔮</td><td>8K - +inf</td><td>待定</td></tr>
+</tbody></table>
+<h2 id="排行榜"><a class="header" href="#排行榜">排行榜</a></h2>
+<table><thead><tr><th>奖牌</th><th>总积分排名</th></tr></thead><tbody>
+<tr><td><span class="rustt trophy">🏅</span></td><td>积分前十</td></tr>
+<tr><td><span class="rustt trophy">🥉</span></td><td>积分第三</td></tr>
+<tr><td><span class="rustt trophy">🥈</span></td><td>积分第二</td></tr>
+<tr><td><span class="rustt trophy">🥇</span></td><td>积分第一</td></tr>
+</tbody></table>
+<blockquote>
+<p>只有在组织人数超过 20 人后，才能拥有奖章型等级</p>
+</blockquote>
+<h2 id="积分计算规则"><a class="header" href="#积分计算规则">积分计算规则</a></h2>
+<table><thead><tr><th>贡献</th><th>积分</th><th>评定标准</th></tr></thead><tbody>
+<tr><td>1 篇文章</td><td>10 - 40 分</td><td>内容长度: 8 - 30，质量: 0 - 5, 翻译速度: 0 - 5</td></tr>
+<tr><td>1 个选题</td><td>4 - 8 分</td><td>按选题质量加分，<strong>被翻译者认领后才可以加分</strong></td></tr>
+</tbody></table>
+<blockquote>
+<p>注意，上面的质量分是附加分，因此 1分 不代表质量不好。0分 是正常水平：读者可以无障碍的阅读。</p>
+</blockquote>
+<h2 id="贡献者权利"><a class="header" href="#贡献者权利">贡献者权利</a></h2>
+<p>贡献者根据不同的等级拥有不同的权利。</p>
+<h4 id="核心成员-"><a class="header" href="#核心成员-">核心成员 💎💎💎</a></h4>
+<ul>
+<li>书籍可以单独作为一个仓库放入<a href="https://github.com/studyrs">组织下</a></li>
+</ul>
+<h4 id="管理员-"><a class="header" href="#管理员-">管理员 🔮</a></h4>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="新人引导"><a class="header" href="#新人引导">新人引导</a></h1>
+<p>作为新人，相信大家对于要做什么，怎么做是比较迷茫的，这里我们一起来逐步看看你改怎么开始。</p>
+<ol>
+<li>
+<p>首先，翻译权限需要<a href="(https://guide.rustt.org/rank-points.html#%E7%A7%AF%E5%88%86%E7%AD%89%E7%BA%A7)">积分</a>达到 10 分后才能解锁，因此你需要先<a href="./proposing.html">提交两个选题</a>。</p>
+</li>
+<li>
+<p><strong>提交选题并不能加分</strong>，只有当选题被翻译者认领后，才能获取加分。因此，现在你需要<a href="https://guide.rustt.org/translation-guide/steps.html#2-%E8%B4%A1%E7%8C%AE%E8%80%85%E8%AE%A4%E9%A2%86">认领</a>自己提交的那两个选题。</p>
+</li>
+<li>
+<p>待两个选题 issue 都成为已认领状态，恭喜你，你的贡献者等级也正式来到了 🌟🌟，此时就可以开始翻译了。</p>
+</li>
+<li>
+<p>按照<a href="">翻译步骤详解</a>的提示，大家从第三步开始，一步一步完成即可，这里就不再赘述</p>
+</li>
+</ol>
+<p>除此之外，还有一些你需要知道的：</p>
+<ul>
+<li><a href="https://guide.rustt.org/rank-points.html">积分等级和权限的关系</a></li>
+<li><a href="https://guide.rustt.org/translation-guide/approver.html">何为 Approver</a></li>
+<li><a href="https://guide.rustt.org/translation-guide/where-to-put.html">翻译文件名以及该放在哪里</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="一篇文章的诞生"><a class="header" href="#一篇文章的诞生">一篇文章的诞生</a></h1>
+<p>一篇文章在投放到读者手中前会经历如下流程:</p>
+<p><code>提交选题 -&gt; 贡献者认领 -&gt; 翻译ing -&gt; 提交 PR -&gt; 合并到主仓库，增加积分 -&gt; 推送给用户</code></p>
+<h3 id="1-提交选题"><a class="header" href="#1-提交选题">1. 提交选题</a></h3>
+<p>关于选题，请参见<a href="translation-guide/../proposing.html">选题指南</a>。</p>
+<h3 id="2-贡献者认领"><a class="header" href="#2-贡献者认领">2. 贡献者认领</a></h3>
+<p>选题提交后，对应的 issue 会被自动打上 <code>待认领</code> 标签。</p>
+<p>翻译者可以根据自己的兴趣爱好进行认领， 在 issue 下评论: 申请翻译，预期完成时间 20XX-YY-ZZ。</p>
+<p>然后 Approver 在浏览选题列表时，如果发现一个选题 issue 打上了 <code>待认领</code> 标签且有用户评论，就说明该选题已经被申请认领。你需要进入该 issue, 将剩余信息填写完毕，并将 issue 标签从 <code>待认领</code> 修改为 <code>已认领</code>。 </p>
+<p>如果大家还是迷惑，可以看看这个<a href="https://github.com/studyrs/Rustt/issues/10">示例 issue</a>。</p>
+<h3 id="3-翻译ing"><a class="header" href="#3-翻译ing">3. 翻译ing</a></h3>
+<p>由于翻译内容一定会创建新的文件，因此请务必看下这篇说明：<a href="translation-guide/./where-to-put.html">翻译成果放在哪?</a>， <strong>非常重要</strong>！</p>
+<p>在翻译时，贡献者需要遵循 <a href="translation-guide/./composing.html">排版指北</a> 和 <a href="translation-guide/./composing.html">中英对照</a>，尽量保证翻译风格的统一。</p>
+<!-- 系列文章和书籍需要在其根目录下置放一个 `Readme.md` 文件，然后在其中对书籍进行介绍，**最重要的是要提供目录**！ -->
+<h3 id="4-提交-pr"><a class="header" href="#4-提交-pr">4. 提交 PR</a></h3>
+<blockquote>
+<p>注意，提交 PR 有个先决条件：贡献者等级达到 🌟🌟，新来的贡献者可以提两个选题，然后自己认领了，就差不多够 10 分了。</p>
+</blockquote>
+<p>大家可以按照单篇文章的粒度来提交 PR : </p>
+<ul>
+<li>如果是文章、资讯类的，可以一次性翻译完成后，再提交 PR</li>
+<li>对于书籍或系列文章则可以按照其中的章节来提交，例如，一个章节一个 PR，当然你也可以一本书一个 PR :P</li>
+</ul>
+<p>提交 PR 时必须要关联选题的 issue，这样可以在 issue 中跟踪进度并获取最后结果。</p>
+<p>如果是书籍或系列文章，必须要提供当前翻译进度，方便同步到最新文章列表中。</p>
+<!-- 最后，请务必更新文章所在分类下的索引列表( Readme.md )，这样读者才能在分类中看到你翻译的最新文章，未来该文章也会按照时间降序排列。 -->
+<blockquote>
+<p><strong>翻译者请注意</strong>！</p>
+<ol>
+<li>请额外提交一个 pr，修改仓库首页的最近翻译列表，将你的文章添加到列表上最上方，修改相应的信息。由于这个列表只保留六篇文章，因此如果列表长度超过 6，请你移除最下面的文章所在的行。</li>
+<li>你提交的翻译文件名中的时间应该是翻译完成的时间，而不是创建文件的时间。不然，假如你在 3 月 1 号创建的文件，但是在 3 月 31 号完成，结果文件名还是 1 号的，这中间就有了巨大的时间反差</li>
+</ol>
+</blockquote>
+<p><strong>总之，你的 PR 必须符合<a href="translation-guide/../translation-guide/approver.html">这些规则</a>，才能通过审核</strong>。</p>
+<h3 id="5-合并到主仓库增加积分"><a class="header" href="#5-合并到主仓库增加积分">5. 合并到主仓库，增加积分</a></h3>
+<p>当全部翻译完成后，翻译者需要在 issue 中 @ 一个具有审核权限的贡献者 <a href="translation-guide/../org-info/members.html#approver">Approver</a>，该 Approver 在<a href="translation-guide/../translation-guide/approver.html">完成审核</a>后，会将 PR 合并到主仓库，并为该翻译者<a href="translation-guide/../org-info/rank-points.html">计算并增加相应的积分</a>。</p>
+<h3 id="6-推送给用户"><a class="header" href="#6-推送给用户">6. 推送给用户</a></h3>
+<p>推送包含两个方面:</p>
+<ul>
+<li>在主仓库首页的最新文章列表中进行添加，如果是书籍、系列文章，需要更新下进度</li>
+<li>推送到其它平台，例如知乎、微信公众号等</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="翻译成果放在哪"><a class="header" href="#翻译成果放在哪">翻译成果放在哪？</a></h1>
+<p>可以说，整个翻译过程最需要注意的就是翻译文件的问题，因此请各位贡献者务必遵循下面的规则。</p>
+<h2 id="按照类型放入指定目录"><a class="header" href="#按照类型放入指定目录">按照类型放入指定目录</a></h2>
+<p>选题的 issue 开头就是翻译内容的类型: 文章、资讯、书籍。它们需要分别放入到以下目录中(仓库的根目录下):</p>
+<ul>
+<li>文章和系列文章: <a href="https://github.com/studyrs/Rustt/tree/main/Articles"><code>Articles</code></a></li>
+<li>书籍: <a href="https://github.com/studyrs/Rustt/tree/main/Books"><code>Books</code></a></li>
+<li>资讯: <a href="https://github.com/studyrs/Rustt/tree/main/News"><code>News</code></a></li>
+</ul>
+<h2 id="图片存储"><a class="header" href="#图片存储">图片存储</a></h2>
+<p>目前图片统一存储在 <a href="https://github.com/rustt-org/rustt-assets">rustt-assets</a> 仓库中，对于翻译的文章、书籍，在里面创建同名的目录，然后将图片置入其中。</p>
+<h2 id="创建文件还是目录"><a class="header" href="#创建文件还是目录">创建文件还是目录</a></h2>
+<ul>
+<li>文章、资讯: 文件</li>
+<li>系列文章和书籍：目录</li>
+</ul>
+<h2 id="文件或目录名"><a class="header" href="#文件或目录名">文件或目录名</a></h2>
+<p>翻译后的文件名规则如下：<code>[时间] 中文文章名(如果是有名的英文书籍需要附上英文书名).md</code>，例如 <code>[22-03-23] Rust程序设计(The Rust Book).md</code></p>
+<blockquote>
+<p>你提交的翻译文件名中的时间应该是翻译完成的时间，而不是创建文件的时间。不然，假如你在 3 月 1 号创建的文件，但是在 3 月 31 号完成，结果文件名还是 1 号的，这中间就有了巨大的时间反差 </p>
+</blockquote>
+<h2 id="核心成员的特权"><a class="header" href="#核心成员的特权">核心成员的特权</a></h2>
+<p>如果你是<a href="translation-guide/../rank-points.html">核心以上的成员</a>，那么你将拥有将书籍作为一个单独的仓库放入 <a href="https://github.com/studyrs">StudyRust</a> 组织下的权利。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="如何提交pr"><a class="header" href="#如何提交pr">如何提交PR</a></h1>
+<p>本文将详细介绍如何在 github 上提交一个 PR，非常适合从来没有提交过 PR 的同学。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="markdown-和-html"><a class="header" href="#markdown-和-html">Markdown 和 HTML</a></h1>
+<p>我们使用的是 <code>GitHub Flavored Markdown</code> 简称 <code>GFM</code>，Github 全站都对该语法进行了支持。并且 <code>GFM</code> 还支持一些 HTML 语法，在本文档中也一并列出。</p>
+<blockquote>
+<p><code>GFM</code> 的完整文档可以在 <a href="https://docs.github.com/cn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github">Github 官方文档</a>中查看。</p>
+</blockquote>
+<h4 id="引用图片"><a class="header" href="#引用图片">引用图片</a></h4>
+<p>出于兼容性考虑，建议大家使用 <code>&lt;img src=&quot;IMAGE_URL&quot; /&gt;</code> 的方式引入图片，就目前所知，<code>![图片描述](IMAGE_URL)</code> 的方式在知乎、微信公众号上都无法正常使用。</p>
+<h4 id="文字上标注"><a class="header" href="#文字上标注">文字上标注</a></h4>
+<blockquote>
+<p>请勿随意使用该语法，它有几个缺点：</p>
+<ol>
+<li>跨平台支持性，有些平台可能无法识别这种语法，最终显示一大堆原始 mardown 文本</li>
+<li>让 Markdown 文档变得难以阅读和维护</li>
+</ol>
+<p><strong>因此我们只推荐在如下情况才使用该语法：</strong></p>
+<ol>
+<li>该中文词汇绝大部分用户不知道或者不了解</li>
+<li>翻译者不确定自己翻译的是否正确( 在查询过指南的翻译词汇表后 )</li>
+</ol>
+<p>总之，请尽量减少使用！甚至可以简单地用 <code>中午( Chinese )</code> 的方式来替代</p>
+</blockquote>
+<pre><code>&lt;ruby&gt;特征约束&lt;rt&gt;Trait Bound&lt;/rt&gt;&lt;/ruby&gt;
+</code></pre>
+<br />
+<p><ruby>特征约束<rt>Trait Bound</rt></ruby></p>
+<h4 id="删除线"><a class="header" href="#删除线">删除线</a></h4>
+<pre><code>~~Mistaken text~~
+</code></pre>
+<br />
+<p><del>Mistaken text</del></p>
+<h4 id="表格对齐"><a class="header" href="#表格对齐">表格对齐</a></h4>
+<pre><code>| 左对齐  | 居中对齐  | 右对齐 |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| zebra stripes | are neat        |    $1 |
+</code></pre>
+<br />
+<table><thead><tr><th style="text-align: left">左对齐</th><th style="text-align: center">居中对齐</th><th style="text-align: right">右对齐</th></tr></thead><tbody>
+<tr><td style="text-align: left">col 3 is</td><td style="text-align: center">some wordy text</td><td style="text-align: right">$1600</td></tr>
+<tr><td style="text-align: left">col 2 is</td><td style="text-align: center">centered</td><td style="text-align: right">$12</td></tr>
+<tr><td style="text-align: left">zebra stripes</td><td style="text-align: center">are neat</td><td style="text-align: right">$1</td></tr>
+</tbody></table>
+<h4 id="脚标"><a class="header" href="#脚标">脚标</a></h4>
+<pre><code>This is an example of a footnote[^note].
+
+[^note]: This text is the contents of the footnote, which will be rendered
+    towards the bottom.
+
+</code></pre>
+<p>This is an example of a footnote<sup class="footnote-reference"><a href="#note">1</a></sup>.</p>
+<div class="footnote-definition" id="note"><sup class="footnote-definition-label">1</sup>
+<p>This text is the contents of the footnote, which will be rendered
+towards the bottom.</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="中文排版指北"><a class="header" href="#中文排版指北">中文排版指北</a></h1>
+<p>本文借鉴自LCTT 的 <a href="https://github.com/LCTT/wiki/blob/master/tutorials/copywriting.md">中文文案排版指北</a>，并做了一定的修订。</p>
+<p>统一中文文案、排版的相关用法，降低团队成员之间的沟通成本，增强网站气质。</p>
+<hr />
+<h2 id="空格"><a class="header" href="#空格">空格</a></h2>
+<h3 id="中英文之间需要增加空格"><a class="header" href="#中英文之间需要增加空格">中英文之间需要增加空格</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>在 LeanCloud 上，数据存储是围绕 <code>AVObject</code> 进行的。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>在LeanCloud上，数据存储是围绕<code>AVObject</code>进行的。</p>
+<p>在 LeanCloud上，数据存储是围绕<code>AVObject</code> 进行的。</p>
+</blockquote>
+<p>完整的正确用法：</p>
+<blockquote>
+<p>在 LeanCloud 上，数据存储是围绕 <code>AVObject</code> 进行的。 每个 <code>AVObject</code> 都包含了与 JSON 兼容的 key-value 对应的数据。 数据是 schema-free 的，你不需要在每个 <code>AVObject</code> 上提前指定存在哪些键，只要直接设定对应的 key-value 即可。</p>
+</blockquote>
+<p>例外：「豆瓣FM」等产品名词，按照官方所定义的格式书写。</p>
+<h3 id="中文与数字之间需要增加空格"><a class="header" href="#中文与数字之间需要增加空格">中文与数字之间需要增加空格</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>今天出去买菜花了 5000 元。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>今天出去买菜花了 5000元。</p>
+<p>今天出去买菜花了5000元。</p>
+</blockquote>
+<h3 id="数字与单位之间需要增加空格"><a class="header" href="#数字与单位之间需要增加空格">数字与单位之间需要增加空格</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>我家的光纤入屋宽频有 10 Gbps，SSD 一共有 20 TB</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>我家的光纤入屋宽频有 10Gbps，SSD 一共有 20TB</p>
+</blockquote>
+<p>例外：度 / 百分比与数字之间不需要增加空格：</p>
+<p>正确：</p>
+<blockquote>
+<p>今天是 233° 的高温。</p>
+<p>新 MacBook Pro 有 15% 的 CPU 性能提升。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>今天是 233 ° 的高温。</p>
+<p>新 MacBook Pro 有 15 % 的 CPU 性能提升。</p>
+</blockquote>
+<h3 id="全角标点与其他字符之间不加空格"><a class="header" href="#全角标点与其他字符之间不加空格">全角标点与其他字符之间不加空格</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>刚刚买了一部 iPhone，好开心！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>刚刚买了一部 iPhone ，好开心！</p>
+<p>刚刚买了一部 iPhone， 好开心！</p>
+</blockquote>
+<h3 id="用-text-spacing-来挽救"><a class="header" href="#用-text-spacing-来挽救">用 <code>text-spacing</code> 来挽救？</a></h3>
+<p>CSS Text Module Level 4 的 <a href="https://www.w3.org/TR/css-text-4/#text-spacing-property"><code>text-spacing</code></a> 和 Microsoft 的 <a href="http://msdn.microsoft.com/en-us/library/ie/ms531164(v=vs.85).aspx"><code>-ms-text-autospace</code></a> 可以实现自动为中英文之间增加空白。不过目前并未普及，另外在其他应用场景，例如 macOS、iOS、Windows 等用户介面目前并不存在这个特性，所以请继续保持随手加空格的习惯。</p>
+<h2 id="标点符号"><a class="header" href="#标点符号">标点符号</a></h2>
+<h3 id="不重复使用标点符号"><a class="header" href="#不重复使用标点符号">不重复使用标点符号</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>德国队竟然战胜了巴西队！</p>
+<p>她竟然对你说「喵」？！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>德国队竟然战胜了巴西队！！</p>
+<p>德国队竟然战胜了巴西队！！！！！！！！</p>
+<p>她竟然对你说「喵」？？！！</p>
+<p>她竟然对你说「喵」？！？！？？！！</p>
+</blockquote>
+<h2 id="全角和半角"><a class="header" href="#全角和半角">全角和半角</a></h2>
+<p>不明白什么是全角（全形）与半角（半形）符号？请查看维基百科词条『<a href="http://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2">全形和半形</a>』。</p>
+<h3 id="使用全角中文标点"><a class="header" href="#使用全角中文标点">使用全角中文标点</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>嗨！你知道嘛？今天前台的小妹跟我说「喵」了哎！</p>
+<p>核磁共振成像（NMRI）是什么原理都不知道？JFGI！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>嗨! 你知道嘛? 今天前台的小妹跟我说 &quot;喵&quot; 了哎！</p>
+<p>嗨!你知道嘛?今天前台的小妹跟我说&quot;喵&quot;了哎！</p>
+<p>核磁共振成像 (NMRI) 是什么原理都不知道? JFGI!</p>
+<p>核磁共振成像(NMRI)是什么原理都不知道?JFGI!</p>
+</blockquote>
+<h3 id="数字使用半角字符"><a class="header" href="#数字使用半角字符">数字使用半角字符</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>这件蛋糕只卖 1000 元。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>这件蛋糕只卖 １０００ 元。</p>
+</blockquote>
+<p>例外：在设计稿、宣传海报中如出现极少量数字的情形时，为方便文字对齐，是可以使用全形数字的。</p>
+<h3 id="遇到完整的英文整句特殊名词其内容使用半角标点"><a class="header" href="#遇到完整的英文整句特殊名词其内容使用半角标点">遇到完整的英文整句、特殊名词，其内容使用半角标点</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>贾伯斯那句话是怎么说的？「Stay hungry, stay foolish.」</p>
+<p>推荐你阅读《Hackers &amp; Painters: Big Ideas from the Computer Age》，非常的有趣。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>贾伯斯那句话是怎么说的？「Stay hungry，stay foolish。」</p>
+<p>推荐你阅读《Hackers＆Painters：Big Ideas from the Computer Age》，非常的有趣。</p>
+</blockquote>
+<h2 id="名词"><a class="header" href="#名词">名词</a></h2>
+<h3 id="专有名词使用正确的大小写"><a class="header" href="#专有名词使用正确的大小写">专有名词使用正确的大小写</a></h3>
+<p>大小写相关用法原属于英文书写范畴，不属于本 wiki 讨论内容，在这里只对部分易错用法进行简述。</p>
+<p>正确：</p>
+<blockquote>
+<p>使用 GitHub 登录</p>
+<p>我们的客户有 GitHub、Foursquare、Microsoft Corporation、Google、Facebook, Inc.。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>使用 github 登录</p>
+<p>使用 GITHUB 登录</p>
+<p>使用 Github 登录</p>
+<p>使用 gitHub 登录</p>
+<p>使用 gｲんĤЦ8 登录</p>
+<p>我们的客户有 github、foursquare、microsoft corporation、google、facebook, inc.。</p>
+<p>我们的客户有 GITHUB、FOURSQUARE、MICROSOFT CORPORATION、GOOGLE、FACEBOOK, INC.。</p>
+<p>我们的客户有 Github、FourSquare、MicroSoft Corporation、Google、FaceBook, Inc.。</p>
+<p>我们的客户有 gitHub、fourSquare、microSoft Corporation、google、faceBook, Inc.。</p>
+<p>我们的客户有 gｲんĤЦ8、ｷouЯƧquﾑгє、๓เςг๏ร๏Ŧt ς๏гק๏гคtเ๏ภn、900913、ƒ4ᄃëв๏๏к, IПᄃ.。</p>
+</blockquote>
+<p>注意：当网页中需要配合整体视觉风格而出现全部大写／小写的情形，HTML 中请使用标淮的大小写规范进行书写；并通过 <code>text-transform: uppercase;</code>／<code>text-transform: lowercase;</code> 对表现形式进行定义。</p>
+<h3 id="不要使用不地道的缩写"><a class="header" href="#不要使用不地道的缩写">不要使用不地道的缩写</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>我们需要一位熟悉 JavaScript、HTML5，至少理解一种框架（如 Backbone.js、AngularJS、React 等）的前端开发者。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>我们需要一位熟悉 Js、h5，至少理解一种框架（如 backbone、angular、RJS 等）的 FED。</p>
+</blockquote>
+<h2 id="争议"><a class="header" href="#争议">争议</a></h2>
+<p>以下用法略带有个人色彩，即：无论是否遵循下述规则，从语法的角度来讲都是<strong>正确</strong>的。</p>
+<h3 id="链接之间增加空格"><a class="header" href="#链接之间增加空格">链接之间增加空格</a></h3>
+<p>（LCTT约定：建议采用。）</p>
+<p>用法：</p>
+<blockquote>
+<p>请 <a href="translation-guide/composing.html#">提交一个 issue</a> 并分配给相关同事。</p>
+<p>访问我们网站的最新动态，请 <a href="translation-guide/composing.html#">点击这里</a> 进行订阅！</p>
+</blockquote>
+<p>对比用法：</p>
+<blockquote>
+<p>请<a href="translation-guide/composing.html#">提交一个 issue</a>并分配给相关同事。</p>
+<p>访问我们网站的最新动态，请<a href="translation-guide/composing.html#">点击这里</a>进行订阅！</p>
+</blockquote>
+<h3 id="简体中文使用直角引号"><a class="header" href="#简体中文使用直角引号">简体中文使用直角引号</a></h3>
+<p>（LCTT 约定：不采用。）</p>
+<p>用法：</p>
+<blockquote>
+<p>「老师，『有条不紊』的『紊』是什么意思？」</p>
+</blockquote>
+<p>对比用法：</p>
+<blockquote>
+<p>“老师，‘有条不紊’的‘紊’是什么意思？”</p>
+</blockquote>
+<h2 id="谁在这样做"><a class="header" href="#谁在这样做">谁在这样做？</a></h2>
+<table><thead><tr><th>网站</th><th>文案</th><th>UGC</th></tr></thead><tbody>
+<tr><td><a href="http://www.apple.com/cn/">Apple 中国</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="http://www.apple.com/hk/">Apple 香港</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="http://www.apple.com/tw/">Apple 台湾</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="http://www.microsoft.com/zh-cn/">Microsoft 中国</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="http://www.microsoft.com/zh-hk/">Microsoft 香港</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="http://www.microsoft.com/zh-tw/">Microsoft 台湾</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="https://leancloud.cn/">LeanCloud</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="https://www.v2ex.com/">V2EX</a></td><td>是</td><td>是</td></tr>
+<tr><td><a href="http://apple4us.com/">Apple4us</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="https://ruby-china.org/">Ruby China</a></td><td>是</td><td>标题达成</td></tr>
+<tr><td><a href="https://phphub.org/">PHPHub</a></td><td>是</td><td>标题达成</td></tr>
+<tr><td><a href="http://sspai.com/">少数派</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="https://linux.cn/">Linux 中国</a></td><td>是</td><td>是</td></tr>
+</tbody></table>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<ul>
+<li><a href="http://grammar.about.com/od/punctuationandmechanics/a/Guidelines-For-Using-Capital-Letters.htm">Guidelines for Using Capital Letters - About.com</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Letter_case">Letter case - Wikipedia</a></li>
+<li><a href="http://www.oxforddictionaries.com/words/punctuation">Punctuation - Oxford Dictionaries</a></li>
+<li><a href="https://owl.english.purdue.edu/owl/section/1/6/">Punctuation - The Purdue OWL</a></li>
+<li><a href="http://www.wikihow.com/Use-English-Punctuation-Correctly">How to Use English Punctuation Correctly - wikiHow</a></li>
+<li><a href="https://zh.opensuse.org/index.php?title=Help:%E6%A0%BC%E5%BC%8F">格式 - openSUSE</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2">全形和半形 - 维基百科</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%BC%95%E8%99%9F">引号 - 维基百科</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E7%96%91%E5%95%8F%E9%A9%9A%E5%98%86%E8%99%9F">疑问惊叹号 - 维基百科</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="技术文章写作风格指南"><a class="header" href="#技术文章写作风格指南">技术文章写作风格指南</a></h1>
+<p>我们的首要翻译目标就是：精准传达原文的意思，提供流畅的阅读体验。第一个就不说了，这是翻译文章必须要做到的，本文主要谈谈关于如何提供流畅的阅读体验。</p>
+<h2 id="什么是好的写作风格"><a class="header" href="#什么是好的写作风格">什么是好的写作风格？</a></h2>
+<p>对于技术文章而言，如果能做到：<strong>干干净净，该翻译的地方翻译，该保留原文的地方保留，该高亮的地方高亮等</strong>，那就是好的写作风格( 或者说我们提倡的 )。</p>
+<p>总之，换位思考下，你喜欢行云流水还是磕磕绊绊的阅读体验？相信大家都会选择前者。为了避免后者，最重要就是控制英文词汇的数量。</p>
+<h2 id="控制英文词汇的数量"><a class="header" href="#控制英文词汇的数量">控制英文词汇的数量</a></h2>
+<p>原则是，能翻译的地方都翻译了，除非：</p>
+<ul>
+<li>这个词汇不好翻译，就算翻了，别人也云里雾里，不如不翻</li>
+<li>类型标识，例如 <code>Option</code>, <code>Result</code> 等等</li>
+<li>特有词汇，例如 Rust、Java</li>
+<li>简写、缩写，例如 CPU 、HTML、JSON</li>
+</ul>
+<p>对于翻还是不翻，大家可以简单参考下中英文对照表，有就可以翻，没有就可以不翻，但是这个不是绝对的，毕竟对照表也经常有遗漏甚至错误。</p>
+<blockquote>
+<p>如果还是不清楚，强烈建议大家换位思考，以读者的身份阅读一下你翻译的内容，不说行云流水，先看是否能做到干干净净、不磕磕绊绊。</p>
+</blockquote>
+<p>在了解了以上规则后，简单考大家一下：非代码文本中出现的 struct, enum 要不要翻译？答案是不翻译，因为它不满足以上的规则，例如第一条，结构体和枚举显然是众所周知的词汇，不存在某些人理解不了的情况，因此<strong>需要翻译</strong>.</p>
+<h2 id="人称代词和连词"><a class="header" href="#人称代词和连词">人称代词和连词</a></h2>
+<p>翻译好不好，主要看人称代词的使用，我发现一个问题：<em>很多同学在翻译时，会不自觉去使用英文中的英文代词，最后翻译味儿十足，甚至觉得怪怪的</em>.</p>
+<p>要知道，英文写作和中文写作是不同的，后者对于人称代词、连词有更严格的要求，最重要的就是做到：<strong>减少人称代词和连词的滥用</strong>。如果一段文字频繁出现了几个 <code>我</code> 、<code>你</code>、<code>我们</code>，就要反思下是不是用多了。</p>
+<p>还有一点就是尽量保持代词、连词的一致性。</p>
+<p>总之，大家写中文作文的时候，人称代词和连词怎么使用，翻译文章就该怎么使用。一旦搞定了这个，那翻译后的内容在阅读感上就能获得立竿见影般的提升。</p>
+<h2 id="段落控制"><a class="header" href="#段落控制">段落控制</a></h2>
+<p>英文分段和中文分段的内在逻辑性有很大的不同，因此大家没必要完全按照原文的段落来分段，可以选择按照中文的阅读习惯，使用内聚性更强的段落。</p>
+<p>除非，我们要做双语阅读形式的翻译，那逐字逐行是必须的。</p>
+<h2 id="何时高亮和加粗"><a class="header" href="#何时高亮和加粗">何时高亮和加粗</a></h2>
+<p>有些同学将所有没有翻译的英文内容都高亮了，或者干脆都不高亮，这些都是不合适的，以下内容需要高亮：</p>
+<ul>
+<li>对代码片段、类型、工具名称的引用，例如 <code>let v = 1</code>, <code>Option&lt;T&gt;</code>, <code>Result</code>, <code>rustc</code>, <code>libc</code> 等</li>
+<li>需要凸显一小段内容，但是加粗太明显了，想要温和一些</li>
+</ul>
+<p>但是，理论上除了代码片段和类型，其它的也可以不用高亮，所以具体如何选择需要翻译者自己斟酌。</p>
+<p>当你需要强调一段内容，让用户能够一眼看到，例如<strong>重点总结或者某句非看不可的文字</strong>就可以使用加粗来标记。</p>
+<h2 id="何时使用斜体"><a class="header" href="#何时使用斜体">何时使用斜体</a></h2>
+<ul>
+<li>名称类，例如文件名: <em>src/main.rs</em></li>
+<li>某段文字，加粗太明显，想要温和的凸显一下</li>
+<li>段落内的外部引用内容</li>
+</ul>
+<p>对于单独的引用内容，适合以以下格式呈现:</p>
+<blockquote>
+<p>这是一段引用自 <em>Rust语言圣经</em> 的内容：</p>
+<ol>
+<li>XXX</li>
+<li>YYY</li>
+</ol>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust-中英文对照表"><a class="header" href="#rust-中英文对照表">Rust 中英文对照表</a></h1>
+<table><thead><tr><th>English 英文</th><th>Chinese 中文</th><th>Note 备注</th></tr></thead><tbody>
+<tr><td><strong>A</strong></td><td></td><td></td></tr>
+<tr><td>Abstract Syntax Tree</td><td>抽象语法树</td><td></td></tr>
+<tr><td>ABI</td><td>应用程序二进制接口</td><td>Application Binary Interface 缩写</td></tr>
+<tr><td>accumulator</td><td>累加器</td><td></td></tr>
+<tr><td>accumulator variable</td><td>累加器变量</td><td></td></tr>
+<tr><td>ahead-of-time compiled</td><td>预编译</td><td></td></tr>
+<tr><td>ahead-of-time compiled language</td><td>预编译语言</td><td></td></tr>
+<tr><td>algebraic data types(ADT)</td><td>代数数据类型</td><td></td></tr>
+<tr><td>alias</td><td>别名</td><td></td></tr>
+<tr><td>aliasing</td><td>别名使用</td><td>参见 <a href="https://en.wikipedia.org/wiki/Pointer_aliasing">Wikipedia</a></td></tr>
+<tr><td>angle brackets</td><td>尖括号，“&lt;”和“&gt;”</td><td></td></tr>
+<tr><td>annotate</td><td>标注，注明（动词）</td><td></td></tr>
+<tr><td>annotation</td><td>标注，注明（名词）</td><td></td></tr>
+<tr><td>ARC</td><td>原子引用计数器</td><td>Atomic Referecne Counter</td></tr>
+<tr><td>anonymity</td><td>匿名</td><td></td></tr>
+<tr><td>argument</td><td>参数，实参，实际参数</td><td>不严格区分的话， argument（参数）和 <br> parameter（参量）可以互换地使用</td></tr>
+<tr><td>argument type</td><td>参数类型</td><td></td></tr>
+<tr><td>assignment</td><td>赋值</td><td></td></tr>
+<tr><td>associated functions</td><td>关联函数</td><td></td></tr>
+<tr><td>associated items</td><td>关联项</td><td></td></tr>
+<tr><td>associated types</td><td>关联类型</td><td></td></tr>
+<tr><td>asterisk</td><td>星号（*)</td><td></td></tr>
+<tr><td>atomic</td><td>原子的</td><td></td></tr>
+<tr><td>attribute</td><td>属性</td><td></td></tr>
+<tr><td>automated building</td><td>自动构建</td><td></td></tr>
+<tr><td>automated test</td><td>自动测试，自动化测试</td><td></td></tr>
+<tr><td><strong>B</strong></td><td></td><td></td></tr>
+<tr><td>baroque macro</td><td>巴洛克宏</td><td></td></tr>
+<tr><td>benchmark</td><td>基准</td><td></td></tr>
+<tr><td>binary</td><td>二进制的</td><td></td></tr>
+<tr><td>binary executable</td><td>二进制的可执行文件</td><td></td></tr>
+<tr><td>bind</td><td>绑定</td><td></td></tr>
+<tr><td>block</td><td>语句块，代码块</td><td></td></tr>
+<tr><td>boolean</td><td>布尔型，布尔值</td><td></td></tr>
+<tr><td>borrow check</td><td>借用检查</td><td></td></tr>
+<tr><td>borrower</td><td>借用者，借入者</td><td></td></tr>
+<tr><td>borrowed</td><td>借用的</td><td></td></tr>
+<tr><td>borrowing</td><td>借用</td><td></td></tr>
+<tr><td>bound</td><td>约束，限定，限制</td><td>此词和 constraint 意思相近，<br>constraint 在 C# 语言中翻译成“约束”</td></tr>
+<tr><td>box</td><td>箱子，盒子，装箱类型</td><td>一般不译，作动词时翻译成“装箱”，<br>具有所有权的智能指针</td></tr>
+<tr><td>boxed</td><td>装箱，装包</td><td></td></tr>
+<tr><td>boxing</td><td>装箱，装包</td><td></td></tr>
+<tr><td>brace</td><td>大括号，“{”或“}”</td><td></td></tr>
+<tr><td>breaking changes</td><td>破坏性变更</td><td></td></tr>
+<tr><td>buffer</td><td>缓冲区</td><td></td></tr>
+<tr><td>build</td><td>构建</td><td></td></tr>
+<tr><td>builder pattern</td><td>创建者模式</td><td></td></tr>
+<tr><td><strong>C</strong></td><td></td><td></td></tr>
+<tr><td>call</td><td>调用</td><td></td></tr>
+<tr><td>caller</td><td>调用者</td><td></td></tr>
+<tr><td>capacity</td><td>容量</td><td></td></tr>
+<tr><td>capture</td><td>捕获</td><td></td></tr>
+<tr><td>cargo</td><td>(Rust 包管理器，不译)</td><td>该词作名词时意思是“货物”，<br>作动词时意思是“装载货物”</td></tr>
+<tr><td>cargo-fy</td><td>Cargo 化，使用 Cargo 创建项目</td><td></td></tr>
+<tr><td>case analysis</td><td>事例分析</td><td></td></tr>
+<tr><td>cast</td><td>类型转换，转型</td><td></td></tr>
+<tr><td>casting</td><td>类型转换</td><td></td></tr>
+<tr><td>chaining method call</td><td>链式方法调用</td><td></td></tr>
+<tr><td>channel</td><td>信道，通道</td><td></td></tr>
+<tr><td>closure</td><td>闭包</td><td></td></tr>
+<tr><td>coercion</td><td>强制类型转换，强制转换</td><td>coercion 原意是“强制，胁迫”</td></tr>
+<tr><td>collection</td><td>集合</td><td>参见 <a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E5%90%88_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)">Wikipedia</a></td></tr>
+<tr><td>combinator</td><td>组合算子，组合器</td><td></td></tr>
+<tr><td>comma</td><td>逗号，“,”</td><td></td></tr>
+<tr><td>command</td><td>命令</td><td></td></tr>
+<tr><td>command line</td><td>命令行</td><td></td></tr>
+<tr><td>comment</td><td>注释</td><td></td></tr>
+<tr><td>compile</td><td>编译（动词）</td><td></td></tr>
+<tr><td>compile time</td><td>编译期，编译期间，编译时</td><td></td></tr>
+<tr><td>compilation</td><td>编译（名词）</td><td></td></tr>
+<tr><td>compilation unit</td><td>编译单元</td><td></td></tr>
+<tr><td>compiler</td><td>编译器</td><td></td></tr>
+<tr><td>compiler intrinsics</td><td>编译器固有功能</td><td></td></tr>
+<tr><td>compound</td><td>复合（类型，数据）</td><td></td></tr>
+<tr><td>concurrency</td><td>并发</td><td></td></tr>
+<tr><td>conditional compilation</td><td>条件编译</td><td></td></tr>
+<tr><td>configuration</td><td>配置</td><td></td></tr>
+<tr><td>constant</td><td>常量</td><td></td></tr>
+<tr><td>constant raw pointer</td><td>原生常量指针</td><td></td></tr>
+<tr><td>constructor</td><td>构造器</td><td></td></tr>
+<tr><td>consumer</td><td>消费者</td><td></td></tr>
+<tr><td>container</td><td>容器</td><td></td></tr>
+<tr><td>container type</td><td>容器类型</td><td></td></tr>
+<tr><td>convert</td><td>转换，转化，转</td><td></td></tr>
+<tr><td>copy</td><td>复制，拷贝</td><td></td></tr>
+<tr><td>crate</td><td>包</td><td>crate 是 Rust 的基本编译单元</td></tr>
+<tr><td>crate root</td><td>包根</td><td>别拍我，我知道很奇葩</td></tr>
+<tr><td>curly braces</td><td>大括号，包含“{”和“}”</td><td></td></tr>
+<tr><td>custom type</td><td>自定义类型</td><td></td></tr>
+<tr><td><strong>D</strong></td><td></td><td></td></tr>
+<tr><td>dangling pointer</td><td>悬垂指针</td><td>use after free 在释放后使用</td></tr>
+<tr><td>data race</td><td>数据竞争</td><td></td></tr>
+<tr><td>dead code</td><td>死代码，无效代码，不可达代码</td><td></td></tr>
+<tr><td>deallocate</td><td>释放，重新分配</td><td></td></tr>
+<tr><td>declare</td><td>声明</td><td></td></tr>
+<tr><td>deep copy</td><td>深拷贝，深复制</td><td></td></tr>
+<tr><td>dependency</td><td>依赖</td><td></td></tr>
+<tr><td>deref coercions</td><td>解引用强制转换</td><td></td></tr>
+<tr><td>dereference</td><td>解引用</td><td>Rust  文章中有时简写为 Deref</td></tr>
+<tr><td>derive</td><td>派生</td><td></td></tr>
+<tr><td>designator</td><td>指示符</td><td></td></tr>
+<tr><td>destruction</td><td>销毁，毁灭</td><td></td></tr>
+<tr><td>destructor</td><td>析构器，析构函数</td><td></td></tr>
+<tr><td>destructure</td><td>解构</td><td></td></tr>
+<tr><td>destructuring</td><td>解构，解构赋值</td><td></td></tr>
+<tr><td>desugar</td><td>脱糖</td><td></td></tr>
+<tr><td>diverge function</td><td>发散函数</td><td></td></tr>
+<tr><td>device drive</td><td>设备驱动</td><td></td></tr>
+<tr><td>directory</td><td>目录</td><td></td></tr>
+<tr><td>dispatch</td><td>分发</td><td></td></tr>
+<tr><td>diverging functions</td><td>发散函数</td><td></td></tr>
+<tr><td>documentation</td><td>文档</td><td></td></tr>
+<tr><td>dot operator</td><td>点运算符</td><td></td></tr>
+<tr><td>DST</td><td>动态大小类型</td><td>dynamic sized type，一般不译，<br>使用英文缩写形式</td></tr>
+<tr><td>dynamic language</td><td>动态类型语言</td><td></td></tr>
+<tr><td>dynamic trait type</td><td>动态特质类型</td><td></td></tr>
+<tr><td><strong>E</strong></td><td></td><td></td></tr>
+<tr><td>enum variant</td><td>枚举成员</td><td></td></tr>
+<tr><td>enumeration</td><td>枚举</td><td></td></tr>
+<tr><td>encapsulation</td><td>封装</td><td></td></tr>
+<tr><td>equality test</td><td>相等测试</td><td></td></tr>
+<tr><td>elision</td><td>省略</td><td></td></tr>
+<tr><td>exhaustiveness checking</td><td>穷尽性检查，无遗漏检查</td><td></td></tr>
+<tr><td>executor</td><td>执行器</td><td></td></tr>
+<tr><td>expression</td><td>表达式</td><td></td></tr>
+<tr><td>expression-oriented language</td><td>面向表达式的语言</td><td></td></tr>
+<tr><td>explicit</td><td>显式</td><td></td></tr>
+<tr><td>explicit discriminator</td><td>显式的辨别值</td><td></td></tr>
+<tr><td>explicit type conversion</td><td>显式类型转换</td><td></td></tr>
+<tr><td>extension</td><td>扩展名</td><td></td></tr>
+<tr><td>extern</td><td>外，外部</td><td>作关键字时不译</td></tr>
+<tr><td><strong>F</strong></td><td></td><td></td></tr>
+<tr><td>fat pointer</td><td>宽指针</td><td></td></tr>
+<tr><td>Feature</td><td>暂时不译</td><td>在Rust中主要用于Cargo feature该词</td></tr>
+<tr><td>feature gate</td><td>功能开关</td><td></td></tr>
+<tr><td>field</td><td>字段</td><td></td></tr>
+<tr><td>field-level mutability</td><td>字段级别可变性</td><td></td></tr>
+<tr><td>file</td><td>文件</td><td></td></tr>
+<tr><td>fmt</td><td>格式化，是 format 的缩写</td><td></td></tr>
+<tr><td>formatter</td><td>格式化程序，格式化工具，格式器</td><td></td></tr>
+<tr><td>floating-point number</td><td>浮点数</td><td></td></tr>
+<tr><td>flow control</td><td>流程控制</td><td></td></tr>
+<tr><td>Foreign Function Interface（FFI）</td><td>外部语言函数接口</td><td></td></tr>
+<tr><td>fragment specifier</td><td>片段分类符</td><td></td></tr>
+<tr><td>free variables</td><td>自由变量</td><td></td></tr>
+<tr><td>freeze</td><td>冻结</td><td></td></tr>
+<tr><td>function</td><td>函数</td><td></td></tr>
+<tr><td>function declaration</td><td>函数声明</td><td></td></tr>
+<tr><td>functional</td><td>函数式</td><td></td></tr>
+<tr><td><strong>G</strong></td><td></td><td></td></tr>
+<tr><td>garbage collector</td><td>垃圾回收</td><td></td></tr>
+<tr><td>generalize</td><td>泛化，泛型化</td><td></td></tr>
+<tr><td>generator</td><td>生成器</td><td></td></tr>
+<tr><td>generic</td><td>泛型</td><td></td></tr>
+<tr><td>generic type</td><td>泛型类型</td><td></td></tr>
+<tr><td>getter</td><td>读访问器</td><td></td></tr>
+<tr><td>growable</td><td>可增长的</td><td></td></tr>
+<tr><td>guard</td><td>守卫</td><td></td></tr>
+<tr><td><strong>H</strong></td><td></td><td></td></tr>
+<tr><td>handle error</td><td>句柄错误</td><td></td></tr>
+<tr><td>hash</td><td>哈希，哈希值，散列</td><td></td></tr>
+<tr><td>hash map</td><td>散列映射，哈希表</td><td></td></tr>
+<tr><td>heap</td><td>堆</td><td></td></tr>
+<tr><td>hierarchy</td><td>层次，分层，层次结构</td><td></td></tr>
+<tr><td>higher rank lifetime</td><td>高阶生命周期</td><td></td></tr>
+<tr><td>higher rank trait bound</td><td>高阶特质约束</td><td></td></tr>
+<tr><td>higher rank type</td><td>高阶类型</td><td></td></tr>
+<tr><td>hygiene</td><td>卫生</td><td></td></tr>
+<tr><td>hygienic macro system</td><td>卫生宏系统</td><td></td></tr>
+<tr><td><strong>I</strong></td><td></td><td></td></tr>
+<tr><td>ICE</td><td>编译内部错误</td><td>internal compiler error 的缩写</td></tr>
+<tr><td>immutable</td><td>不可变的</td><td></td></tr>
+<tr><td>implement</td><td>实现</td><td></td></tr>
+<tr><td>implementor</td><td>实现者</td><td></td></tr>
+<tr><td>implicit</td><td>隐式</td><td></td></tr>
+<tr><td>implicit discriminator</td><td>隐式的辨别值</td><td></td></tr>
+<tr><td>implicit type conversion</td><td>隐式类型转换</td><td></td></tr>
+<tr><td>import</td><td>导入</td><td></td></tr>
+<tr><td>in assignment</td><td>在赋值（语句）</td><td></td></tr>
+<tr><td>index</td><td>索引</td><td>英语复数形式：indices</td></tr>
+<tr><td>infer</td><td>推导（动词）</td><td></td></tr>
+<tr><td>inference</td><td>推导（名词）</td><td></td></tr>
+<tr><td>inherited mutability</td><td>承袭可变性</td><td></td></tr>
+<tr><td>inheritance</td><td>继承</td><td></td></tr>
+<tr><td>integrated development <br>environment(IDE)</td><td>集成开发环境</td><td>中文著作中通常直接写成 IDE</td></tr>
+<tr><td>integration-style test</td><td>集成测试</td><td></td></tr>
+<tr><td>interior mutability</td><td>内部可变性</td><td></td></tr>
+<tr><td>installer</td><td>安装程序，安装器</td><td></td></tr>
+<tr><td>instance</td><td>实例</td><td></td></tr>
+<tr><td>instance method</td><td>实例方法</td><td></td></tr>
+<tr><td>integer</td><td>整型，整数</td><td></td></tr>
+<tr><td>interact</td><td>相互作用，相互影响</td><td></td></tr>
+<tr><td>interior mutability</td><td>内部可变性</td><td></td></tr>
+<tr><td>intrinsic</td><td>固有的</td><td></td></tr>
+<tr><td>invoke</td><td>调用</td><td></td></tr>
+<tr><td>item</td><td>项，条目，项目</td><td></td></tr>
+<tr><td>iterate</td><td>重复</td><td></td></tr>
+<tr><td>iteration</td><td>迭代</td><td></td></tr>
+<tr><td>iterator</td><td>迭代器</td><td></td></tr>
+<tr><td>iterator adaptors</td><td>迭代器适配器</td><td></td></tr>
+<tr><td>iterator invalidation</td><td>迭代器失效</td><td></td></tr>
+<tr><td><strong>L</strong></td><td></td><td></td></tr>
+<tr><td>local variables</td><td>局部变量</td><td></td></tr>
+<tr><td>LHS</td><td>左操作数</td><td>left-hand side 的非正式缩写，<br>与 RHS 相对</td></tr>
+<tr><td>lender</td><td>借出者</td><td></td></tr>
+<tr><td>library</td><td>库</td><td></td></tr>
+<tr><td>lifetime</td><td>生命周期</td><td></td></tr>
+<tr><td>lifetime elision</td><td>生命周期消除</td><td></td></tr>
+<tr><td>link</td><td>链接</td><td></td></tr>
+<tr><td>linked-list</td><td>链表</td><td></td></tr>
+<tr><td>lint</td><td>代码静态分析</td><td>Lint, or a linter, is a static code analysis tool used to flag programming errors, bugs, stylistic errors and suspicious constructs</td></tr>
+<tr><td>list</td><td>列表</td><td></td></tr>
+<tr><td>listener</td><td>监听器</td><td></td></tr>
+<tr><td>literal</td><td>数据，常量数据，字面值，字面量，<br>字面常量，字面上的</td><td>英文意思：字面意义的（内容）</td></tr>
+<tr><td>LLVM</td><td>（不译）</td><td>Low Level Virtual Machine 的缩写，<br>是构建编译器的系统</td></tr>
+<tr><td>loop</td><td>循环</td><td>作关键字时不译</td></tr>
+<tr><td>low-level code</td><td>底层代码</td><td></td></tr>
+<tr><td>low-level language</td><td>底层语言</td><td></td></tr>
+<tr><td>l-value</td><td>左值</td><td></td></tr>
+<tr><td><strong>M</strong></td><td></td><td></td></tr>
+<tr><td>main function</td><td>main 函数，主函数</td><td></td></tr>
+<tr><td>macro</td><td>宏</td><td></td></tr>
+<tr><td>map</td><td>映射</td><td>一般不译</td></tr>
+<tr><td>match guard</td><td>匹配守卫</td><td></td></tr>
+<tr><td>memory</td><td>内存</td><td></td></tr>
+<tr><td>memory leak</td><td>内存泄露</td><td></td></tr>
+<tr><td>memory safe</td><td>内存安全</td><td></td></tr>
+<tr><td>meta</td><td>原则，元</td><td></td></tr>
+<tr><td>metadata</td><td>元数据</td><td></td></tr>
+<tr><td>metaprogramming</td><td>元编程</td><td></td></tr>
+<tr><td>metavariable</td><td>元变量</td><td></td></tr>
+<tr><td>method call syntax</td><td>方法调用语法</td><td></td></tr>
+<tr><td>method chaining</td><td>方法链</td><td></td></tr>
+<tr><td>method definition</td><td>方法定义</td><td></td></tr>
+<tr><td>modifier</td><td>修饰符</td><td></td></tr>
+<tr><td>module</td><td>模块</td><td></td></tr>
+<tr><td>monomorphization</td><td>单态</td><td>mono: one, morph: form</td></tr>
+<tr><td>move</td><td>移动，转移</td><td>按照 Rust 所规定的内容，<br>英语单词 transfer 的意思<br>比 move 更贴合实际描述<br>参考：<a href="http://rustwiki.org/rust-by-example/scope/move.html">Rust by Example</a></td></tr>
+<tr><td>move semantics</td><td>移动语义</td><td></td></tr>
+<tr><td>mutability</td><td>可变性</td><td></td></tr>
+<tr><td>mutable</td><td>可变</td><td></td></tr>
+<tr><td>mutable reference</td><td>可变引用</td><td></td></tr>
+<tr><td>multiple bounds</td><td>多重约束</td><td></td></tr>
+<tr><td>mutiple patterns</td><td>多重模式</td><td></td></tr>
+<tr><td><strong>N</strong></td><td></td><td></td></tr>
+<tr><td>naming</td><td>命名</td><td></td></tr>
+<tr><td>nest</td><td>嵌套</td><td></td></tr>
+<tr><td>Nightly Rust</td><td>Rust 开发版</td><td>nightly本意是“每夜，每天晚上”，<br>指代码每天都更新</td></tr>
+<tr><td>NLL</td><td>非词法生命周期</td><td>non lexical lifetime 的缩写，<br>一般不译</td></tr>
+<tr><td>non-copy type</td><td>非复制类型</td><td></td></tr>
+<tr><td>non-generic</td><td>非泛型</td><td></td></tr>
+<tr><td>no-op</td><td>空操作，空运算</td><td>(此词出现在类型转换章节中）</td></tr>
+<tr><td>non-commutative</td><td>非交换的</td><td></td></tr>
+<tr><td>non-scalar cast</td><td>非标量转换</td><td></td></tr>
+<tr><td>notation</td><td>符号，记号</td><td></td></tr>
+<tr><td>number type</td><td>数据类型</td><td></td></tr>
+<tr><td>numeric</td><td>数值，数字</td><td></td></tr>
+<tr><td><strong>O</strong></td><td></td><td></td></tr>
+<tr><td>optimization</td><td>优化</td><td></td></tr>
+<tr><td>out-of-bounds accessing</td><td>越界访问</td><td></td></tr>
+<tr><td>orphan rule</td><td>孤儿规则</td><td></td></tr>
+<tr><td>overflow</td><td>溢出，越界</td><td></td></tr>
+<tr><td>own</td><td>占有，拥有</td><td></td></tr>
+<tr><td>owned</td><td>所拥有的</td><td></td></tr>
+<tr><td>owner</td><td>所有者，拥有者</td><td></td></tr>
+<tr><td>ownership</td><td>所有权</td><td></td></tr>
+<tr><td><strong>P</strong></td><td></td><td></td></tr>
+<tr><td>package</td><td>不翻译</td><td></td></tr>
+<tr><td>panic</td><td>异常、致命错误、不译</td><td>在 Rust 中用于不可恢复的错误处理，跟其它语言的exception类似</td></tr>
+<tr><td>parallelism</td><td>并行</td><td></td></tr>
+<tr><td>parameter</td><td>参数</td><td></td></tr>
+<tr><td>parametric polymorphism</td><td>参数多态</td><td></td></tr>
+<tr><td>parent scope</td><td>父级作用域</td><td></td></tr>
+<tr><td>parentheses</td><td>小括号，包括“(”和“)”</td><td></td></tr>
+<tr><td>parse</td><td>分析，解析</td><td></td></tr>
+<tr><td>parser</td><td>（语法）分析器，解析器</td><td></td></tr>
+<tr><td>pattern</td><td>模式</td><td></td></tr>
+<tr><td>pattern match</td><td>模式匹配</td><td></td></tr>
+<tr><td>phantom type</td><td>虚类型，虚位类型</td><td>phantom 相关的专有名词：<br>phantom bug 幻影指令<br>phantom power 幻象电源<br>参见：<a href="https://wiki.haskell.org/Phantom_type">Haskell</a>、<a href="https://en.wikibooks.org/wiki/Haskell/Phantom_types">Haskell/Phantom_type</a>、<br><a href="http://rustwiki.org/rust-by-example/generics/phantom.html">Rust/Phantom</a>、<a href="https://doc.rust-lang.org/std/marker/struct.PhantomData.html">stdlib/PhantomData</a></td></tr>
+<tr><td>platform</td><td>平台</td><td></td></tr>
+<tr><td>polymorphism</td><td>多态</td><td></td></tr>
+<tr><td>powershell</td><td>（不译）</td><td>Windows 系统的一种命令行外壳程序<br>和脚本环境</td></tr>
+<tr><td>possibility of absence</td><td>不存在的可能性</td><td></td></tr>
+<tr><td>precede</td><td>预先？，在...发生（或出现）</td><td></td></tr>
+<tr><td>prelude</td><td>（不译）</td><td>预先导入模块，英文本意：序曲，前奏</td></tr>
+<tr><td>primitive types</td><td>原生类型，基本类型，简单类型</td><td></td></tr>
+<tr><td>print</td><td>打印</td><td></td></tr>
+<tr><td>process</td><td>进程</td><td></td></tr>
+<tr><td>procedural macros</td><td>过程宏，程序宏</td><td></td></tr>
+<tr><td>project</td><td>项目，工程</td><td></td></tr>
+<tr><td>prototype</td><td>原型</td><td></td></tr>
+<tr><td><strong>R</strong></td><td></td><td></td></tr>
+<tr><td>race condition</td><td>竞态条件</td><td></td></tr>
+<tr><td>RAII</td><td>资源获取即初始化（一般不译）</td><td>resource acquisition is initialization 的缩写</td></tr>
+<tr><td>range</td><td>区间，范围</td><td></td></tr>
+<tr><td>range expression</td><td>区间表达式</td><td></td></tr>
+<tr><td>raw identifier</td><td>原生标识符</td><td></td></tr>
+<tr><td>raw pointer</td><td>裸指针</td><td></td></tr>
+<tr><td>RC</td><td>引用计数</td><td>reference counted</td></tr>
+<tr><td>reader</td><td>读取器</td><td></td></tr>
+<tr><td>reader/writer</td><td>读写器</td><td></td></tr>
+<tr><td>recursive macro</td><td>递归宏</td><td></td></tr>
+<tr><td>reference</td><td>引用</td><td></td></tr>
+<tr><td>reference cycle</td><td>引用循环</td><td></td></tr>
+<tr><td>release</td><td>发布</td><td></td></tr>
+<tr><td>resource</td><td>资源</td><td></td></tr>
+<tr><td>resource leak</td><td>资源泄露</td><td></td></tr>
+<tr><td>RHS</td><td>右操作数</td><td>right-hand side 的非正式缩写，<br>与 LHS 相对</td></tr>
+<tr><td>root directory</td><td>根目录</td><td></td></tr>
+<tr><td>runtime</td><td>运行时</td><td></td></tr>
+<tr><td>runtime behavior</td><td>运行时行为</td><td></td></tr>
+<tr><td>runtime overhead</td><td>运行时开销</td><td></td></tr>
+<tr><td>Rust</td><td>（不译）</td><td>一种编程语言</td></tr>
+<tr><td>Rustacean</td><td>（不译）</td><td>编写 Rust 的程序员或爱好者的通称</td></tr>
+<tr><td>rustc</td><td>（不译）</td><td>Rust 语言编译器</td></tr>
+<tr><td>r-value</td><td>右值</td><td></td></tr>
+<tr><td><strong>S</strong></td><td></td><td></td></tr>
+<tr><td>scalar</td><td>标量，数量</td><td></td></tr>
+<tr><td>schedule</td><td>调度</td><td></td></tr>
+<tr><td>scope</td><td>作用域</td><td></td></tr>
+<tr><td>screen</td><td>屏幕</td><td></td></tr>
+<tr><td>script</td><td>脚本</td><td></td></tr>
+<tr><td>semicolon</td><td>分号，“;”</td><td></td></tr>
+<tr><td>self</td><td>自身，作关键字时不译</td><td></td></tr>
+<tr><td>setter</td><td>写访问器</td><td></td></tr>
+<tr><td>shadow</td><td>遮蔽，隐蔽，隐藏，覆盖</td><td></td></tr>
+<tr><td>shallow copy</td><td>浅拷贝，浅复制</td><td></td></tr>
+<tr><td>signature</td><td>标记</td><td></td></tr>
+<tr><td>slice</td><td>切片</td><td></td></tr>
+<tr><td>snake case</td><td>蛇形命名</td><td>参见：<a href="https://en.wikipedia.org/wiki/Snake_case">Snake case</a></td></tr>
+<tr><td>source file</td><td>源文件</td><td></td></tr>
+<tr><td>source code</td><td>源代码</td><td></td></tr>
+<tr><td>specialization</td><td>泛型特化</td><td></td></tr>
+<tr><td>square</td><td>平方，二次方，二次幂</td><td></td></tr>
+<tr><td>square brackets</td><td>中括号，“[”和“]”</td><td></td></tr>
+<tr><td>src</td><td>（不译）</td><td>source 的缩写，指源代码</td></tr>
+<tr><td>stack</td><td>栈</td><td></td></tr>
+<tr><td>stack unwind</td><td>栈解开、栈展开</td><td></td></tr>
+<tr><td>statement</td><td>语句</td><td></td></tr>
+<tr><td>statically allocated</td><td>静态分配</td><td></td></tr>
+<tr><td>statically allocated string</td><td>静态分配的字符串</td><td></td></tr>
+<tr><td>statically dispatch</td><td>静态分发</td><td></td></tr>
+<tr><td>static method</td><td>静态方法</td><td></td></tr>
+<tr><td>string</td><td>字符串</td><td></td></tr>
+<tr><td>string literal</td><td>字符串常量</td><td></td></tr>
+<tr><td>string slices</td><td>字符串切片</td><td></td></tr>
+<tr><td>stringify</td><td>字符串化</td><td></td></tr>
+<tr><td>subscript notation</td><td>下标</td><td></td></tr>
+<tr><td>sugar</td><td>糖</td><td></td></tr>
+<tr><td>super</td><td>父级，作关键字时不译</td><td></td></tr>
+<tr><td>syntax context</td><td>语法上下文</td><td></td></tr>
+<tr><td>systems programming language</td><td>系统级编程语言</td><td></td></tr>
+<tr><td><strong>T</strong></td><td></td><td></td></tr>
+<tr><td>tagged union</td><td>标记联合</td><td></td></tr>
+<tr><td>target triple</td><td>多层次指标，三层/重 指标/目标</td><td>triple 本义是“三”，但此处虚指“多”，<br>此词翻译需要更多讨论</td></tr>
+<tr><td>terminal</td><td>终端</td><td></td></tr>
+<tr><td>testing</td><td>测试</td><td></td></tr>
+<tr><td>testsuit</td><td>测试套件</td><td></td></tr>
+<tr><td>the least significant bit (LSB)</td><td>最低数字位</td><td></td></tr>
+<tr><td>the most significant bit (MSB)</td><td>最高数字位</td><td></td></tr>
+<tr><td>thread</td><td>线程</td><td></td></tr>
+<tr><td>TOML</td><td>（不译）</td><td>Tom's Obvious, Minimal Language <br>的缩写，一种配置语言</td></tr>
+<tr><td>token tree</td><td>令牌树？</td><td>待进一步斟酌</td></tr>
+<tr><td>trait</td><td>特征</td><td>其字面上有“特性，特征”之意</td></tr>
+<tr><td>trait bound</td><td>特征约束</td><td>bound 有“约束，限制，限定”之意</td></tr>
+<tr><td>trait object</td><td>特征对象</td><td></td></tr>
+<tr><td>transmute</td><td>（不译）</td><td>其字面上有“变化，变形，变异”之意，<br>不作翻译</td></tr>
+<tr><td>trivial</td><td>平凡的</td><td></td></tr>
+<tr><td>troubleshooting</td><td>疑难解答，故障诊断，<br>故障排除，故障分析</td><td></td></tr>
+<tr><td>tuple</td><td>元组</td><td></td></tr>
+<tr><td>turbofish</td><td>双冒号<code>::</code>                   ｜ 难以翻译，所以直接用形译法</td><td></td></tr>
+<tr><td>two's complement</td><td>补码，二补数</td><td></td></tr>
+<tr><td>two-word object</td><td>双字对象</td><td></td></tr>
+<tr><td>type annotation</td><td>类型标注</td><td></td></tr>
+<tr><td>type erasure</td><td>类型擦除</td><td></td></tr>
+<tr><td>type inference</td><td>类型推导</td><td></td></tr>
+<tr><td>type inference engine</td><td>类型推导引擎</td><td></td></tr>
+<tr><td>type parameter</td><td>类型参量</td><td></td></tr>
+<tr><td>type placeholder</td><td>类型占位符</td><td></td></tr>
+<tr><td>type signature</td><td>类型标记</td><td></td></tr>
+<tr><td><strong>U</strong></td><td></td><td></td></tr>
+<tr><td>undefined behavior</td><td>未定义行为</td><td></td></tr>
+<tr><td>uninstall</td><td>卸载</td><td></td></tr>
+<tr><td>unit-like struct</td><td>类单元结构体</td><td></td></tr>
+<tr><td>unit struct</td><td>单元结构体</td><td></td></tr>
+<tr><td>&quot;unit-style&quot; tests</td><td>单元测试</td><td></td></tr>
+<tr><td>unit test</td><td>单元测试</td><td></td></tr>
+<tr><td>unit type</td><td>单元类型</td><td></td></tr>
+<tr><td>universal function call syntax <br>(UFCS)</td><td>通用函数调用语法</td><td></td></tr>
+<tr><td>unsized types</td><td>不定长类型</td><td></td></tr>
+<tr><td>unwind</td><td>展开</td><td></td></tr>
+<tr><td>unwrap</td><td>解包</td><td>暂译！</td></tr>
+<tr><td><strong>V</strong></td><td></td><td></td></tr>
+<tr><td>variable binding</td><td>变量绑定</td><td></td></tr>
+<tr><td>variable shadowing</td><td>变量遮蔽，变量隐蔽,<br>变量隐藏，变量覆盖</td><td></td></tr>
+<tr><td>variable capture</td><td>变量捕获</td><td></td></tr>
+<tr><td>variance</td><td>型变</td><td>Invariance 不变、contravariant 逆变、covariance 协变</td></tr>
+<tr><td>variant</td><td>变量</td><td></td></tr>
+<tr><td>vector</td><td>（动态数组，一般不译）</td><td>vector 本义是“向量”</td></tr>
+<tr><td>visibility</td><td>可见性</td><td></td></tr>
+<tr><td>vtable</td><td>虚表</td><td></td></tr>
+<tr><td><strong>W</strong></td><td></td><td></td></tr>
+<tr><td>where clause</td><td>where 子句，where 从句，where 分句</td><td>在数据库的官方手册中多翻译成“子句”，英语语法中翻译成“从句”</td></tr>
+<tr><td>workspace</td><td>工作空间</td><td></td></tr>
+<tr><td>wrap</td><td>包装</td><td>暂译！</td></tr>
+<tr><td>wrapped</td><td>装包</td><td></td></tr>
+<tr><td>wrapper</td><td>装包</td><td></td></tr>
+<tr><td>writer</td><td>写入器</td><td></td></tr>
+<tr><td><strong>Y</strong></td><td></td><td></td></tr>
+<tr><td>yield</td><td>产生(收益、效益等)，产出，提供</td><td></td></tr>
+<tr><td><strong>Z</strong></td><td></td><td></td></tr>
+<tr><td>zero-cost abstractions</td><td>零开销抽象</td><td></td></tr>
+<tr><td>zero-width space(ZWSP)</td><td>零宽空格</td><td></td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="常用模版"><a class="header" href="#常用模版">常用模版</a></h1>
+<h2 id="声明模版"><a class="header" href="#声明模版">声明模版</a></h2>
+<p>以下声明模版请放置在翻译文章的末尾位置。</p>
+<blockquote>
+<p>原文链接: https://www.rust-lang.org</p>
+<p>译者：<a href="https://im.dev">Sunface</a>
+选题：<a href="https://im.dev">Sunface</a></p>
+<p>本文由 <a href="https://rustt.org">Rustt</a> 原创编译，<a href="https://studyrust.org">StudyRust</a> 荣誉推出</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="approver职责"><a class="header" href="#approver职责">Approver职责</a></h1>
+<p>审核者 <a href="https://github.com/orgs/studyrs/teams/rustt-approvers">Approver</a> 是组织中的核心角色，负责:</p>
+<h2 id="一审核选题"><a class="header" href="#一审核选题">一、审核选题</a></h2>
+<p>在有空闲时间时，Approver 可以浏览下选题列表。</p>
+<p>如果发现一个选题 issue 被打上了 <code>待认领</code> 标签且有用户评论，就说明该选题已经被申请认领。你需要进入该 issue, 然后执行以下步骤：</p>
+<blockquote>
+<p>请务必完成加粗的步骤</p>
+</blockquote>
+<ol>
+<li>
+<p>简单审核选题的内容，看看是否符合<a href="translation-guide/../proposing.html#%E9%80%89%E9%A2%98%E8%A7%84%E5%88%99">选题规则</a>，如果不符合，请在评论中给出简单的原因，然后关闭该 issue。</p>
+</li>
+<li>
+<p><strong>在 issue 中评论:</strong></p>
+</li>
+</ol>
+<pre><code>`@rubot`
+
+选题 + X
+</code></pre>
+<p>请严格使用以上 markdown 文本评论，我们的智能机器人还看不懂其它格式 = , =</p>
+<ol start="3">
+<li><strong>在右上角，将 issue 分配给翻译者</strong></li>
+</ol>
+<p>剩下的工作，我们可爱的 Rubot 机器人会自动帮你完成，包括</p>
+<ul>
+<li>为选题者增加积分并更新贡献者列表</li>
+<li>完善声明模版中的翻译者部分</li>
+<li>将标签 <code>待认领</code> 修改为 <code>已认领</code></li>
+</ul>
+<h2 id="二处理-pr"><a class="header" href="#二处理-pr">二、处理 PR</a></h2>
+<p>PR 大概分为两类，一种是提交新的文章，另一种是更新已有内容。</p>
+<h4 id="提交新文章"><a class="header" href="#提交新文章">提交新文章</a></h4>
+<ol>
+<li>诸位需要确保贡献者提交的 PR 符合以下规则:</li>
+</ol>
+<ul>
+<li>PR 正确的关联选题的 issue id</li>
+<li>翻译文件放入到<a href="translation-guide/./where-to-put.html#%E6%8C%89%E7%85%A7%E7%B1%BB%E5%9E%8B%E6%94%BE%E5%85%A5%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95">合适的目录下</a></li>
+<li>翻译文件名的<a href="translation-guide/./where-to-put.html#%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95%E5%90%8D">正确性</a></li>
+<li>内容质量达标(无需核对内容正确性，主要关注文字、排版质量，大致 OK 即可，不然很浪费大家的时间)</li>
+</ul>
+<ol start="2">
+<li>
+<p><strong>合并 PR 到主干</strong></p>
+</li>
+<li>
+<p><strong>在选题的 issue 中评论</strong>:</p>
+</li>
+</ol>
+<pre><code>`@rubot`
+
+翻译 + X
+文章数 + N
+</code></pre>
+<p>这里是告诉 Rubot，为翻译者增加积分 <code>X</code>，并将已贡献的文章数增加 <code>N</code>：例如，<code>PR</code> 中包含 1 篇文章，那 <code>N = 1</code>，2 篇 <code>N = 2</code> ，依此类推。</p>
+<blockquote>
+<p>请各位 Approver 确保 @rubot 时输入的积分、文章等数字都是准确无误的，否则你会给我们的贡献者增加不属于他的积分！</p>
+</blockquote>
+<ol start="4">
+<li>
+<p><strong>如果 PR 是终结性的，就关闭选题 issue</strong>，例如对于文章类型来说，提交一篇文章的 PR 就是终结性的，而对于书籍类型，那可能会提交多次 PR，直到最后一次终结这本书</p>
+</li>
+<li>
+<p>为了保证文章能在分类标签中被搜索到，你还需要<strong>为文章添加相应的类别标签</strong>，然后填写好选题评论中的<strong>译文链接</strong></p>
+</li>
+</ol>
+<h4 id="更新已有文章"><a class="header" href="#更新已有文章">更新已有文章</a></h4>
+<ol>
+<li>
+<p>检查更新的内容、文件</p>
+</li>
+<li>
+<p>合并 PR 到主干</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="贡献者列表"><a class="header" href="#贡献者列表">贡献者列表</a></h1>
+<h2 id="管理员"><a class="header" href="#管理员">管理员</a></h2>
+<h2 id="approver"><a class="header" href="#approver">Approver</a></h2>
+<p>Approver 是组织的核心角色之一，负责为选题关联翻译者、对贡献者提交的 PR 进行审核和合并。</p>
+<table>
+    <tr>
+        <td align="center">
+            <a href="http://im.dev">
+                <img src="https://avatars.githubusercontent.com/u/7036754?v=4?s=100" width="150px"  alt=""/>
+                <br />
+                <sub><b>Sunface</b></sub>
+            </a>
+        </td>
+    </tr>
+</table>
+<h2 id="贡献者详情"><a class="header" href="#贡献者详情">贡献者详情</a></h2>
+<p>全部贡献者列表请参见<a href="https://github.com/studyrs/Rustt/blob/main/%E8%B4%A1%E7%8C%AE%E8%80%85%E6%8E%92%E5%90%8D.md">这里</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="积分兑换"><a class="header" href="#积分兑换">积分兑换</a></h1>
+<p>先列几个大概的方向，未来再完善。</p>
+<h2 id="积分商城"><a class="header" href="#积分商城">积分商城</a></h2>
+<h2 id="流量推广"><a class="header" href="#流量推广">流量推广</a></h2>
+<h2 id="知识收费"><a class="header" href="#知识收费">知识收费</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="内容推广"><a class="header" href="#内容推广">内容推广</a></h1>
+
+                        <div id="giscus-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+        var pagePath = "print.md"
+        </script>
+
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="assets/custom4.js"></script>
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>

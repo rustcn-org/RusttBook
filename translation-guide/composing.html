@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>中文排版指北</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style4.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> Rustt 介绍</a></li><li class="chapter-item expanded "><a href="../join-us.html"><strong aria-hidden="true">2.</strong> 加入我们</a></li><li class="chapter-item expanded "><a href="../proposing.html"><strong aria-hidden="true">3.</strong> 选题指南</a></li><li class="chapter-item expanded "><a href="../rank-points.html"><strong aria-hidden="true">4.</strong> 积分和贡献者等级</a></li><li class="chapter-item expanded "><a href="../newbee-guide.html"><strong aria-hidden="true">5.</strong> 新人引导</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 翻译手册</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../translation-guide/steps.html"><strong aria-hidden="true">6.1.</strong> 翻译步骤详解</a></li><li class="chapter-item expanded "><a href="../translation-guide/where-to-put.html"><strong aria-hidden="true">6.2.</strong> 翻译内容和图片放在哪？</a></li><li class="chapter-item expanded "><a href="../translation-guide/pr.html"><strong aria-hidden="true">6.3.</strong> 如何提交PR</a></li><li class="chapter-item expanded "><a href="../translation-guide/markdown.html"><strong aria-hidden="true">6.4.</strong> Markdown 和 HTML</a></li><li class="chapter-item expanded "><a href="../translation-guide/composing.html" class="active"><strong aria-hidden="true">6.5.</strong> 中文排版指北</a></li><li class="chapter-item expanded "><a href="../translation-guide/styles.html"><strong aria-hidden="true">6.6.</strong> 翻译风格指南</a></li><li class="chapter-item expanded "><a href="../translation-guide/glossary.html"><strong aria-hidden="true">6.7.</strong> 中英对照表</a></li><li class="chapter-item expanded "><a href="../translation-guide/templates.html"><strong aria-hidden="true">6.8.</strong> 常用模版</a></li><li class="chapter-item expanded "><a href="../translation-guide/approver.html"><strong aria-hidden="true">6.9.</strong> Approver职责</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 组织信息</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../org-info/members.html"><strong aria-hidden="true">7.1.</strong> 组织成员</a></li><li class="chapter-item expanded "><a href="../org-info/points-consuming.html"><strong aria-hidden="true">7.2.</strong> 积分兑换</a></li><li class="chapter-item expanded "><a href="../org-info/promotion.html"><strong aria-hidden="true">7.3.</strong> 内容推广 Todo</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/studyrs/rustt" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/studyrs/rustt-book/edit/main/src/translation-guide/composing.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="中文排版指北"><a class="header" href="#中文排版指北">中文排版指北</a></h1>
+<p>本文借鉴自LCTT 的 <a href="https://github.com/LCTT/wiki/blob/master/tutorials/copywriting.md">中文文案排版指北</a>，并做了一定的修订。</p>
+<p>统一中文文案、排版的相关用法，降低团队成员之间的沟通成本，增强网站气质。</p>
+<hr />
+<h2 id="空格"><a class="header" href="#空格">空格</a></h2>
+<h3 id="中英文之间需要增加空格"><a class="header" href="#中英文之间需要增加空格">中英文之间需要增加空格</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>在 LeanCloud 上，数据存储是围绕 <code>AVObject</code> 进行的。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>在LeanCloud上，数据存储是围绕<code>AVObject</code>进行的。</p>
+<p>在 LeanCloud上，数据存储是围绕<code>AVObject</code> 进行的。</p>
+</blockquote>
+<p>完整的正确用法：</p>
+<blockquote>
+<p>在 LeanCloud 上，数据存储是围绕 <code>AVObject</code> 进行的。 每个 <code>AVObject</code> 都包含了与 JSON 兼容的 key-value 对应的数据。 数据是 schema-free 的，你不需要在每个 <code>AVObject</code> 上提前指定存在哪些键，只要直接设定对应的 key-value 即可。</p>
+</blockquote>
+<p>例外：「豆瓣FM」等产品名词，按照官方所定义的格式书写。</p>
+<h3 id="中文与数字之间需要增加空格"><a class="header" href="#中文与数字之间需要增加空格">中文与数字之间需要增加空格</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>今天出去买菜花了 5000 元。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>今天出去买菜花了 5000元。</p>
+<p>今天出去买菜花了5000元。</p>
+</blockquote>
+<h3 id="数字与单位之间需要增加空格"><a class="header" href="#数字与单位之间需要增加空格">数字与单位之间需要增加空格</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>我家的光纤入屋宽频有 10 Gbps，SSD 一共有 20 TB</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>我家的光纤入屋宽频有 10Gbps，SSD 一共有 20TB</p>
+</blockquote>
+<p>例外：度 / 百分比与数字之间不需要增加空格：</p>
+<p>正确：</p>
+<blockquote>
+<p>今天是 233° 的高温。</p>
+<p>新 MacBook Pro 有 15% 的 CPU 性能提升。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>今天是 233 ° 的高温。</p>
+<p>新 MacBook Pro 有 15 % 的 CPU 性能提升。</p>
+</blockquote>
+<h3 id="全角标点与其他字符之间不加空格"><a class="header" href="#全角标点与其他字符之间不加空格">全角标点与其他字符之间不加空格</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>刚刚买了一部 iPhone，好开心！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>刚刚买了一部 iPhone ，好开心！</p>
+<p>刚刚买了一部 iPhone， 好开心！</p>
+</blockquote>
+<h3 id="用-text-spacing-来挽救"><a class="header" href="#用-text-spacing-来挽救">用 <code>text-spacing</code> 来挽救？</a></h3>
+<p>CSS Text Module Level 4 的 <a href="https://www.w3.org/TR/css-text-4/#text-spacing-property"><code>text-spacing</code></a> 和 Microsoft 的 <a href="http://msdn.microsoft.com/en-us/library/ie/ms531164(v=vs.85).aspx"><code>-ms-text-autospace</code></a> 可以实现自动为中英文之间增加空白。不过目前并未普及，另外在其他应用场景，例如 macOS、iOS、Windows 等用户介面目前并不存在这个特性，所以请继续保持随手加空格的习惯。</p>
+<h2 id="标点符号"><a class="header" href="#标点符号">标点符号</a></h2>
+<h3 id="不重复使用标点符号"><a class="header" href="#不重复使用标点符号">不重复使用标点符号</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>德国队竟然战胜了巴西队！</p>
+<p>她竟然对你说「喵」？！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>德国队竟然战胜了巴西队！！</p>
+<p>德国队竟然战胜了巴西队！！！！！！！！</p>
+<p>她竟然对你说「喵」？？！！</p>
+<p>她竟然对你说「喵」？！？！？？！！</p>
+</blockquote>
+<h2 id="全角和半角"><a class="header" href="#全角和半角">全角和半角</a></h2>
+<p>不明白什么是全角（全形）与半角（半形）符号？请查看维基百科词条『<a href="http://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2">全形和半形</a>』。</p>
+<h3 id="使用全角中文标点"><a class="header" href="#使用全角中文标点">使用全角中文标点</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>嗨！你知道嘛？今天前台的小妹跟我说「喵」了哎！</p>
+<p>核磁共振成像（NMRI）是什么原理都不知道？JFGI！</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>嗨! 你知道嘛? 今天前台的小妹跟我说 &quot;喵&quot; 了哎！</p>
+<p>嗨!你知道嘛?今天前台的小妹跟我说&quot;喵&quot;了哎！</p>
+<p>核磁共振成像 (NMRI) 是什么原理都不知道? JFGI!</p>
+<p>核磁共振成像(NMRI)是什么原理都不知道?JFGI!</p>
+</blockquote>
+<h3 id="数字使用半角字符"><a class="header" href="#数字使用半角字符">数字使用半角字符</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>这件蛋糕只卖 1000 元。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>这件蛋糕只卖 １０００ 元。</p>
+</blockquote>
+<p>例外：在设计稿、宣传海报中如出现极少量数字的情形时，为方便文字对齐，是可以使用全形数字的。</p>
+<h3 id="遇到完整的英文整句特殊名词其内容使用半角标点"><a class="header" href="#遇到完整的英文整句特殊名词其内容使用半角标点">遇到完整的英文整句、特殊名词，其内容使用半角标点</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>贾伯斯那句话是怎么说的？「Stay hungry, stay foolish.」</p>
+<p>推荐你阅读《Hackers &amp; Painters: Big Ideas from the Computer Age》，非常的有趣。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>贾伯斯那句话是怎么说的？「Stay hungry，stay foolish。」</p>
+<p>推荐你阅读《Hackers＆Painters：Big Ideas from the Computer Age》，非常的有趣。</p>
+</blockquote>
+<h2 id="名词"><a class="header" href="#名词">名词</a></h2>
+<h3 id="专有名词使用正确的大小写"><a class="header" href="#专有名词使用正确的大小写">专有名词使用正确的大小写</a></h3>
+<p>大小写相关用法原属于英文书写范畴，不属于本 wiki 讨论内容，在这里只对部分易错用法进行简述。</p>
+<p>正确：</p>
+<blockquote>
+<p>使用 GitHub 登录</p>
+<p>我们的客户有 GitHub、Foursquare、Microsoft Corporation、Google、Facebook, Inc.。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>使用 github 登录</p>
+<p>使用 GITHUB 登录</p>
+<p>使用 Github 登录</p>
+<p>使用 gitHub 登录</p>
+<p>使用 gｲんĤЦ8 登录</p>
+<p>我们的客户有 github、foursquare、microsoft corporation、google、facebook, inc.。</p>
+<p>我们的客户有 GITHUB、FOURSQUARE、MICROSOFT CORPORATION、GOOGLE、FACEBOOK, INC.。</p>
+<p>我们的客户有 Github、FourSquare、MicroSoft Corporation、Google、FaceBook, Inc.。</p>
+<p>我们的客户有 gitHub、fourSquare、microSoft Corporation、google、faceBook, Inc.。</p>
+<p>我们的客户有 gｲんĤЦ8、ｷouЯƧquﾑгє、๓เςг๏ร๏Ŧt ς๏гק๏гคtเ๏ภn、900913、ƒ4ᄃëв๏๏к, IПᄃ.。</p>
+</blockquote>
+<p>注意：当网页中需要配合整体视觉风格而出现全部大写／小写的情形，HTML 中请使用标淮的大小写规范进行书写；并通过 <code>text-transform: uppercase;</code>／<code>text-transform: lowercase;</code> 对表现形式进行定义。</p>
+<h3 id="不要使用不地道的缩写"><a class="header" href="#不要使用不地道的缩写">不要使用不地道的缩写</a></h3>
+<p>正确：</p>
+<blockquote>
+<p>我们需要一位熟悉 JavaScript、HTML5，至少理解一种框架（如 Backbone.js、AngularJS、React 等）的前端开发者。</p>
+</blockquote>
+<p>错误：</p>
+<blockquote>
+<p>我们需要一位熟悉 Js、h5，至少理解一种框架（如 backbone、angular、RJS 等）的 FED。</p>
+</blockquote>
+<h2 id="争议"><a class="header" href="#争议">争议</a></h2>
+<p>以下用法略带有个人色彩，即：无论是否遵循下述规则，从语法的角度来讲都是<strong>正确</strong>的。</p>
+<h3 id="链接之间增加空格"><a class="header" href="#链接之间增加空格">链接之间增加空格</a></h3>
+<p>（LCTT约定：建议采用。）</p>
+<p>用法：</p>
+<blockquote>
+<p>请 <a href="#">提交一个 issue</a> 并分配给相关同事。</p>
+<p>访问我们网站的最新动态，请 <a href="#">点击这里</a> 进行订阅！</p>
+</blockquote>
+<p>对比用法：</p>
+<blockquote>
+<p>请<a href="#">提交一个 issue</a>并分配给相关同事。</p>
+<p>访问我们网站的最新动态，请<a href="#">点击这里</a>进行订阅！</p>
+</blockquote>
+<h3 id="简体中文使用直角引号"><a class="header" href="#简体中文使用直角引号">简体中文使用直角引号</a></h3>
+<p>（LCTT 约定：不采用。）</p>
+<p>用法：</p>
+<blockquote>
+<p>「老师，『有条不紊』的『紊』是什么意思？」</p>
+</blockquote>
+<p>对比用法：</p>
+<blockquote>
+<p>“老师，‘有条不紊’的‘紊’是什么意思？”</p>
+</blockquote>
+<h2 id="谁在这样做"><a class="header" href="#谁在这样做">谁在这样做？</a></h2>
+<table><thead><tr><th>网站</th><th>文案</th><th>UGC</th></tr></thead><tbody>
+<tr><td><a href="http://www.apple.com/cn/">Apple 中国</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="http://www.apple.com/hk/">Apple 香港</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="http://www.apple.com/tw/">Apple 台湾</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="http://www.microsoft.com/zh-cn/">Microsoft 中国</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="http://www.microsoft.com/zh-hk/">Microsoft 香港</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="http://www.microsoft.com/zh-tw/">Microsoft 台湾</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="https://leancloud.cn/">LeanCloud</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="https://www.v2ex.com/">V2EX</a></td><td>是</td><td>是</td></tr>
+<tr><td><a href="http://apple4us.com/">Apple4us</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="https://ruby-china.org/">Ruby China</a></td><td>是</td><td>标题达成</td></tr>
+<tr><td><a href="https://phphub.org/">PHPHub</a></td><td>是</td><td>标题达成</td></tr>
+<tr><td><a href="http://sspai.com/">少数派</a></td><td>是</td><td>N/A</td></tr>
+<tr><td><a href="https://linux.cn/">Linux 中国</a></td><td>是</td><td>是</td></tr>
+</tbody></table>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<ul>
+<li><a href="http://grammar.about.com/od/punctuationandmechanics/a/Guidelines-For-Using-Capital-Letters.htm">Guidelines for Using Capital Letters - About.com</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Letter_case">Letter case - Wikipedia</a></li>
+<li><a href="http://www.oxforddictionaries.com/words/punctuation">Punctuation - Oxford Dictionaries</a></li>
+<li><a href="https://owl.english.purdue.edu/owl/section/1/6/">Punctuation - The Purdue OWL</a></li>
+<li><a href="http://www.wikihow.com/Use-English-Punctuation-Correctly">How to Use English Punctuation Correctly - wikiHow</a></li>
+<li><a href="https://zh.opensuse.org/index.php?title=Help:%E6%A0%BC%E5%BC%8F">格式 - openSUSE</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2">全形和半形 - 维基百科</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%BC%95%E8%99%9F">引号 - 维基百科</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E7%96%91%E5%95%8F%E9%A9%9A%E5%98%86%E8%99%9F">疑问惊叹号 - 维基百科</a></li>
+</ul>
+
+                        <div id="giscus-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../translation-guide/markdown.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../translation-guide/styles.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../translation-guide/markdown.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../translation-guide/styles.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+        var pagePath = "translation-guide/composing.md"
+        </script>
+
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../assets/custom4.js"></script>
+    </body>
+</html>
