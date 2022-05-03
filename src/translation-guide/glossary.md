@@ -117,6 +117,7 @@ documentation                    | 文档                          |
 dot operator                     | 点运算符                      |
 DST                              | 动态大小类型                  | dynamic sized type，一般不译，<br>使用英文缩写形式
 dynamic language                 | 动态类型语言                  |
+dynamic dispatch                 | 动态分发                      |
 dynamic trait type               | 动态特质类型               |
 **E**                            |                               |
 enum variant                     | 枚举成员                         |
