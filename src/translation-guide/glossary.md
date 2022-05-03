@@ -343,6 +343,7 @@ stack unwind                     | 栈解开、栈展开                |
 statement                        | 语句                          |
 statically allocated             | 静态分配                      |
 statically allocated string      | 静态分配的字符串              |
+dynamic dispatch                 | 动态分发                      |
 statically dispatch              | 静态分发                      |
 static method                    | 静态方法                      |
 string                           | 字符串                        |
